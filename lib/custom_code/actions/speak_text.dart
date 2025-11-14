@@ -13,6 +13,6 @@ Future speakText(String? text) async {
   final tts = FlutterTts();
 
   await tts.setLanguage('pt-BR');
-  await tts.setPitch(1.0);
+  await tts.setPitch(FFAppState().audioVolume);
   await tts.speak(text!);
 }

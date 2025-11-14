@@ -17,6 +17,11 @@ class FFAppState extends ChangeNotifier {
   Future initializePersistedState() async {
     prefs = await SharedPreferences.getInstance();
     _safeInit(() {
+      _enableRepeatColor =
+          _colorFromIntValue(prefs.getInt('ff_enableRepeatColor')) ??
+              _enableRepeatColor;
+    });
+    _safeInit(() {
       _iconSize = prefs.getDouble('ff_iconSize') ?? _iconSize;
     });
     _safeInit(() {
@@ -24,6 +29,13 @@ class FFAppState extends ChangeNotifier {
     });
     _safeInit(() {
       _contrast = prefs.getDouble('ff_contrast') ?? _contrast;
+    });
+    _safeInit(() {
+      _audioVolume = prefs.getDouble('ff_audioVolume') ?? _audioVolume;
+    });
+    _safeInit(() {
+      _enableRepeatText =
+          prefs.getString('ff_enableRepeatText') ?? _enableRepeatText;
     });
   }
 
@@ -34,28 +46,11 @@ class FFAppState extends ChangeNotifier {
 
   late SharedPreferences prefs;
 
-  Color _firstBackgroundColor = Color(4283076772);
-  Color get firstBackgroundColor => _firstBackgroundColor;
-  set firstBackgroundColor(Color value) {
-    _firstBackgroundColor = value;
-  }
-
-  Color _secondaryBackgroundColor = Color(4294638330);
-  Color get secondaryBackgroundColor => _secondaryBackgroundColor;
-  set secondaryBackgroundColor(Color value) {
-    _secondaryBackgroundColor = value;
-  }
-
-  Color _primaryColor = Color(4283076772);
-  Color get primaryColor => _primaryColor;
-  set primaryColor(Color value) {
-    _primaryColor = value;
-  }
-
-  Color _secondaryColor = Color(4294226307);
-  Color get secondaryColor => _secondaryColor;
-  set secondaryColor(Color value) {
-    _secondaryColor = value;
+  Color _enableRepeatColor = Colors.transparent;
+  Color get enableRepeatColor => _enableRepeatColor;
+  set enableRepeatColor(Color value) {
+    _enableRepeatColor = value;
+    prefs.setInt('ff_enableRepeatColor', value.value);
   }
 
   String _frase = '';
@@ -100,7 +95,7 @@ class FFAppState extends ChangeNotifier {
     _email = value;
   }
 
-  double _iconSize = 30.0;
+  double _iconSize = 56.0;
   double get iconSize => _iconSize;
   set iconSize(double value) {
     _iconSize = value;
@@ -119,6 +114,20 @@ class FFAppState extends ChangeNotifier {
   set contrast(double value) {
     _contrast = value;
     prefs.setDouble('ff_contrast', value);
+  }
+
+  double _audioVolume = 1.0;
+  double get audioVolume => _audioVolume;
+  set audioVolume(double value) {
+    _audioVolume = value;
+    prefs.setDouble('ff_audioVolume', value);
+  }
+
+  String _enableRepeatText = '';
+  String get enableRepeatText => _enableRepeatText;
+  set enableRepeatText(String value) {
+    _enableRepeatText = value;
+    prefs.setString('ff_enableRepeatText', value);
   }
 }
 

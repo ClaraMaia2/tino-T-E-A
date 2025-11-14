@@ -72,84 +72,84 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: valueOrDefault<Color>(
-          FFAppState().firstBackgroundColor,
-          FlutterFlowTheme.of(context).primary,
-        ),
-        body: SafeArea(
-          top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Opacity(
-                opacity: FFAppState().contrast,
-                child: Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 175.0, 0.0, 0.0),
-                    child: Text(
-                      'TinoTEA',
-                      style: TextStyle(
-                        fontFamily: 'Nunito Sans',
-                        color: Colors.white,
-                        fontSize: 64.0,
+      child: PopScope(
+        canPop: false,
+        child: Scaffold(
+          key: scaffoldKey,
+          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          body: SafeArea(
+            top: true,
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Opacity(
+                  opacity: FFAppState().contrast,
+                  child: Align(
+                    alignment: AlignmentDirectional(0.0, 0.0),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 175.0, 0.0, 0.0),
+                      child: Text(
+                        'TinoTEA',
+                        style: TextStyle(
+                          fontFamily: 'Nunito Sans',
+                          color: Colors.white,
+                          fontSize: 64.0,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              Opacity(
-                opacity: FFAppState().contrast,
-                child: Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 0.0, 0.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        await Navigator.push(
-                          context,
-                          PageTransition(
-                            type: PageTransitionType.fade,
-                            child: FlutterFlowExpandedImageView(
-                              image: SvgPicture.asset(
-                                'assets/images/alligator.svg',
-                                fit: BoxFit.contain,
-                                alignment: Alignment(0.0, 0.0),
+                Opacity(
+                  opacity: FFAppState().contrast,
+                  child: Align(
+                    alignment: AlignmentDirectional(0.0, 0.0),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 0.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          await Navigator.push(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.fade,
+                              child: FlutterFlowExpandedImageView(
+                                image: SvgPicture.asset(
+                                  'assets/images/alligator.svg',
+                                  fit: BoxFit.contain,
+                                  alignment: Alignment(0.0, 0.0),
+                                ),
+                                allowRotation: false,
+                                tag: 'imageTag',
+                                useHeroAnimation: true,
                               ),
-                              allowRotation: false,
-                              tag: 'imageTag',
-                              useHeroAnimation: true,
                             ),
-                          ),
-                        );
-                      },
-                      child: Hero(
-                        tag: 'imageTag',
-                        transitionOnUserGestures: true,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: SvgPicture.asset(
-                            'assets/images/alligator.svg',
-                            width: 390.0,
-                            height: 390.0,
-                            fit: BoxFit.fill,
-                            alignment: Alignment(0.0, 0.0),
+                          );
+                        },
+                        child: Hero(
+                          tag: 'imageTag',
+                          transitionOnUserGestures: true,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: SvgPicture.asset(
+                              'assets/images/alligator.svg',
+                              width: 390.0,
+                              height: 390.0,
+                              fit: BoxFit.fill,
+                              alignment: Alignment(0.0, 0.0),
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

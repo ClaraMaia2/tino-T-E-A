@@ -182,6 +182,46 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: CommunicationPageWidget.routeName,
           path: CommunicationPageWidget.routePath,
           builder: (context, params) => CommunicationPageWidget(),
+        ),
+        FFRoute(
+          name: ClassPageWidget.routeName,
+          path: ClassPageWidget.routePath,
+          builder: (context, params) => ClassPageWidget(),
+        ),
+        FFRoute(
+          name: SnackPageWidget.routeName,
+          path: SnackPageWidget.routePath,
+          builder: (context, params) => SnackPageWidget(),
+        ),
+        FFRoute(
+          name: CommunicationWithTeacherPageWidget.routeName,
+          path: CommunicationWithTeacherPageWidget.routePath,
+          builder: (context, params) => CommunicationWithTeacherPageWidget(),
+        ),
+        FFRoute(
+          name: InAndOutPageWidget.routeName,
+          path: InAndOutPageWidget.routePath,
+          builder: (context, params) => InAndOutPageWidget(),
+        ),
+        FFRoute(
+          name: RecessPageWidget.routeName,
+          path: RecessPageWidget.routePath,
+          builder: (context, params) => RecessPageWidget(),
+        ),
+        FFRoute(
+          name: ColorsContrastPageWidget.routeName,
+          path: ColorsContrastPageWidget.routePath,
+          builder: (context, params) => ColorsContrastPageWidget(),
+        ),
+        FFRoute(
+          name: SpeechVolumePageWidget.routeName,
+          path: SpeechVolumePageWidget.routePath,
+          builder: (context, params) => SpeechVolumePageWidget(),
+        ),
+        FFRoute(
+          name: IconsTextsPageWidget.routeName,
+          path: IconsTextsPageWidget.routePath,
+          builder: (context, params) => IconsTextsPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
