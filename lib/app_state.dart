@@ -37,6 +37,9 @@ class FFAppState extends ChangeNotifier {
       _enableRepeatText =
           prefs.getString('ff_enableRepeatText') ?? _enableRepeatText;
     });
+    _safeInit(() {
+      _pin = prefs.getString('ff_pin') ?? _pin;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -128,6 +131,13 @@ class FFAppState extends ChangeNotifier {
   set enableRepeatText(String value) {
     _enableRepeatText = value;
     prefs.setString('ff_enableRepeatText', value);
+  }
+
+  String _pin = '';
+  String get pin => _pin;
+  set pin(String value) {
+    _pin = value;
+    prefs.setString('ff_pin', value);
   }
 }
 

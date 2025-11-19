@@ -82,7 +82,7 @@ class _RegisterParentInfoWidgetState extends State<RegisterParentInfoWidget> {
         canPop: false,
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).primary,
           appBar: PreferredSize(
             preferredSize: Size.fromHeight(100.0),
             child: AppBar(
@@ -133,7 +133,10 @@ class _RegisterParentInfoWidgetState extends State<RegisterParentInfoWidget> {
                       'Voltar',
                       style: GoogleFonts.baloo2(
                         color: Colors.white,
-                        fontSize: 34.0,
+                        fontSize: valueOrDefault<double>(
+                          FFAppState().fontSize,
+                          34.0,
+                        ),
                         decoration: TextDecoration.underline,
                       ),
                     ),
@@ -154,7 +157,10 @@ class _RegisterParentInfoWidgetState extends State<RegisterParentInfoWidget> {
                                   .bodyMedium
                                   .fontStyle,
                             ),
-                            fontSize: 24.0,
+                            fontSize: valueOrDefault<double>(
+                              FFAppState().fontSize,
+                              24.0,
+                            ),
                             letterSpacing: 0.0,
                             fontWeight: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -194,9 +200,11 @@ class _RegisterParentInfoWidgetState extends State<RegisterParentInfoWidget> {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontFamily: 'Nunito Sans',
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            fontSize: 64.0,
+                            color: Colors.white,
+                            fontSize: valueOrDefault<double>(
+                              FFAppState().fontSize,
+                              64.0,
+                            ),
                           ),
                         ),
                       ),
@@ -221,9 +229,11 @@ class _RegisterParentInfoWidgetState extends State<RegisterParentInfoWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    fontSize: 32.0,
+                                    color: Colors.white,
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      32.0,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -342,6 +352,7 @@ class _RegisterParentInfoWidgetState extends State<RegisterParentInfoWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
+                                    fontSize: FFAppState().fontSize,
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -390,9 +401,11 @@ class _RegisterParentInfoWidgetState extends State<RegisterParentInfoWidget> {
                                     .bodyMedium
                                     .fontStyle,
                               ),
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              fontSize: 32.0,
+                              color: Colors.white,
+                              fontSize: valueOrDefault<double>(
+                                FFAppState().fontSize,
+                                32.0,
+                              ),
                               letterSpacing: 0.0,
                               fontWeight: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -507,6 +520,7 @@ class _RegisterParentInfoWidgetState extends State<RegisterParentInfoWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
+                                    fontSize: FFAppState().fontSize,
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -548,9 +562,11 @@ class _RegisterParentInfoWidgetState extends State<RegisterParentInfoWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    fontSize: 32.0,
+                                    color: Colors.white,
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      32.0,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -667,6 +683,7 @@ class _RegisterParentInfoWidgetState extends State<RegisterParentInfoWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
+                                    fontSize: FFAppState().fontSize,
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -709,9 +726,11 @@ class _RegisterParentInfoWidgetState extends State<RegisterParentInfoWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    fontSize: 32.0,
+                                    color: Colors.white,
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      32.0,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -830,6 +849,7 @@ class _RegisterParentInfoWidgetState extends State<RegisterParentInfoWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
+                                    fontSize: FFAppState().fontSize,
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -874,9 +894,11 @@ class _RegisterParentInfoWidgetState extends State<RegisterParentInfoWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    fontSize: 32.0,
+                                    color: Colors.white,
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      32.0,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -1007,6 +1029,7 @@ class _RegisterParentInfoWidgetState extends State<RegisterParentInfoWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
+                                    fontSize: FFAppState().fontSize,
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -1047,9 +1070,11 @@ class _RegisterParentInfoWidgetState extends State<RegisterParentInfoWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    fontSize: 32.0,
+                                    color: Colors.white,
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      32.0,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -1187,6 +1212,7 @@ class _RegisterParentInfoWidgetState extends State<RegisterParentInfoWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
+                                    fontSize: FFAppState().fontSize,
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -1308,7 +1334,10 @@ class _RegisterParentInfoWidgetState extends State<RegisterParentInfoWidget> {
                                         .fontStyle,
                                   ),
                                   color: Colors.black,
-                                  fontSize: 40.0,
+                                  fontSize: valueOrDefault<double>(
+                                    FFAppState().fontSize,
+                                    40.0,
+                                  ),
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                   fontStyle: FlutterFlowTheme.of(context)

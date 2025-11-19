@@ -104,10 +104,7 @@ class _RelationsPageWidgetState extends State<RelationsPageWidget> {
                                     Icons.person_outlined,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
-                                    size: valueOrDefault<double>(
-                                      FFAppState().iconSize,
-                                      50.0,
-                                    ),
+                                    size: 50.0,
                                   ),
                                   onPressed: () {
                                     print('IconButton pressed ...');
@@ -190,6 +187,10 @@ class _RelationsPageWidgetState extends State<RelationsPageWidget> {
                                                   .bodyMedium
                                                   .fontStyle,
                                         ),
+                                        fontSize: valueOrDefault<double>(
+                                          FFAppState().fontSize,
+                                          14.0,
+                                        ),
                                         letterSpacing: 0.0,
                                         fontWeight: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -230,7 +231,10 @@ class _RelationsPageWidgetState extends State<RelationsPageWidget> {
                                                     .fontStyle,
                                           ),
                                           color: Colors.white,
-                                          fontSize: 20.0,
+                                          fontSize: valueOrDefault<double>(
+                                            FFAppState().fontSize,
+                                            20.0,
+                                          ),
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                           fontStyle:
@@ -274,7 +278,10 @@ class _RelationsPageWidgetState extends State<RelationsPageWidget> {
                                         .fontStyle,
                                   ),
                                   color: Colors.white,
-                                  fontSize: 20.0,
+                                  fontSize: valueOrDefault<double>(
+                                    FFAppState().fontSize,
+                                    20.0,
+                                  ),
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                   fontStyle: FlutterFlowTheme.of(context)
@@ -294,11 +301,14 @@ class _RelationsPageWidgetState extends State<RelationsPageWidget> {
                       children: [
                         FlutterFlowIconButton(
                           borderRadius: 8.0,
-                          buttonSize: 50.0,
+                          buttonSize: 60.0,
                           icon: Icon(
                             Icons.arrow_back,
                             color: FlutterFlowTheme.of(context).primaryText,
-                            size: 30.0,
+                            size: valueOrDefault<double>(
+                              FFAppState().iconSize,
+                              56.0,
+                            ),
                           ),
                           onPressed: () async {
                             context.pushNamed(
@@ -314,28 +324,36 @@ class _RelationsPageWidgetState extends State<RelationsPageWidget> {
                             );
                           },
                         ),
-                        Text(
-                          'Voltar',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.baloo2(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    fontSize: 20.0,
-                                    letterSpacing: 0.0,
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              10.0, 0.0, 0.0, 0.0),
+                          child: Text(
+                            'Voltar',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  font: GoogleFonts.baloo2(
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .fontWeight,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .fontStyle,
-                                    decoration: TextDecoration.underline,
                                   ),
+                                  fontSize: valueOrDefault<double>(
+                                    FFAppState().fontSize,
+                                    20.0,
+                                  ),
+                                  letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                  decoration: TextDecoration.underline,
+                                ),
+                          ),
                         ),
                       ],
                     ),
@@ -349,7 +367,10 @@ class _RelationsPageWidgetState extends State<RelationsPageWidget> {
                                 .bodyMedium
                                 .fontStyle,
                           ),
-                          fontSize: 24.0,
+                          fontSize: valueOrDefault<double>(
+                            FFAppState().fontSize,
+                            24.0,
+                          ),
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
                           fontStyle:
@@ -913,7 +934,7 @@ class _RelationsPageWidgetState extends State<RelationsPageWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 0.0),
                                       child: Text(
-                                        'Cumprimentar',
+                                        'Olá',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -943,10 +964,10 @@ class _RelationsPageWidgetState extends State<RelationsPageWidget> {
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           FFAppState().frase =
-                                              '${FFAppState().frase} Cumprimentar';
+                                              '${FFAppState().frase} Olá';
                                           safeSetState(() {});
                                           await actions.speakText(
-                                            'cumprimentar',
+                                            'olá',
                                           );
                                         },
                                         text: 'Escolher',

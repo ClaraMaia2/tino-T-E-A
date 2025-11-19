@@ -190,7 +190,7 @@ class _NavBarPageState extends State<NavBarPage> {
         margin: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
         padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
         width: double.infinity,
-        elevation: 0.0,
+        elevation: 4.0,
         items: [
           FloatingNavbarItem(
             customWidget: Column(
@@ -201,7 +201,7 @@ class _NavBarPageState extends State<NavBarPage> {
                   color: currentIndex == 0
                       ? Colors.white
                       : FlutterFlowTheme.of(context).secondaryText,
-                  size: currentIndex == 0 ? 24.0 : 24.0,
+                  size: currentIndex == 0 ? 56.0 : 56.0,
                 ),
                 Text(
                   'Escolar',
@@ -225,7 +225,7 @@ class _NavBarPageState extends State<NavBarPage> {
                   color: currentIndex == 1
                       ? Colors.white
                       : FlutterFlowTheme.of(context).secondaryText,
-                  size: currentIndex == 1 ? 24.0 : 24.0,
+                  size: currentIndex == 1 ? 56.0 : 56.0,
                 ),
                 Text(
                   'Início',
@@ -245,11 +245,11 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.menu,
+                  Icons.menu_rounded,
                   color: currentIndex == 2
                       ? Colors.white
                       : FlutterFlowTheme.of(context).secondaryText,
-                  size: 34.0,
+                  size: 56.0,
                 ),
                 Text(
                   'Menu',

@@ -76,7 +76,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
         canPop: false,
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).primary,
           body: SafeArea(
             top: true,
             child: Column(
@@ -94,7 +94,10 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                         style: TextStyle(
                           fontFamily: 'Nunito Sans',
                           color: Colors.white,
-                          fontSize: 64.0,
+                          fontSize: valueOrDefault<double>(
+                            FFAppState().fontSize,
+                            64.0,
+                          ),
                         ),
                       ),
                     ),

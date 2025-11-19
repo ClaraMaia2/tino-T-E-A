@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -55,7 +56,7 @@ class _PreferencesIconAudioWidgetState
         canPop: false,
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).primary,
           appBar: PreferredSize(
             preferredSize: Size.fromHeight(100.0),
             child: AppBar(
@@ -97,7 +98,10 @@ class _PreferencesIconAudioWidgetState
                       'Voltar',
                       style: GoogleFonts.baloo2(
                         color: Colors.white,
-                        fontSize: 34.0,
+                        fontSize: valueOrDefault<double>(
+                          FFAppState().fontSize,
+                          34.0,
+                        ),
                         decoration: TextDecoration.underline,
                       ),
                     ),
@@ -115,7 +119,10 @@ class _PreferencesIconAudioWidgetState
                                   .bodyMedium
                                   .fontStyle,
                             ),
-                            fontSize: 24.0,
+                            fontSize: valueOrDefault<double>(
+                              FFAppState().fontSize,
+                              24.0,
+                            ),
                             letterSpacing: 0.0,
                             fontWeight: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -149,9 +156,11 @@ class _PreferencesIconAudioWidgetState
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontFamily: 'Nunito Sans',
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          fontSize: 64.0,
+                          color: Colors.white,
+                          fontSize: valueOrDefault<double>(
+                            FFAppState().fontSize,
+                            64.0,
+                          ),
                         ),
                       ),
                     ),
@@ -175,9 +184,11 @@ class _PreferencesIconAudioWidgetState
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    fontSize: 32.0,
+                                    color: Colors.white,
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      32.0,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -200,8 +211,8 @@ class _PreferencesIconAudioWidgetState
                         child: Container(
                           width: 400.0,
                           child: Slider.adaptive(
-                            activeColor: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
+                            activeColor:
+                                FlutterFlowTheme.of(context).primaryText,
                             inactiveColor: FlutterFlowTheme.of(context).accent4,
                             min: 0.0,
                             max: 60.0,
@@ -243,9 +254,11 @@ class _PreferencesIconAudioWidgetState
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    fontSize: 32.0,
+                                    color: Colors.white,
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      32.0,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -268,17 +281,20 @@ class _PreferencesIconAudioWidgetState
                         child: Container(
                           width: 400.0,
                           child: Slider.adaptive(
-                            activeColor: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
+                            activeColor:
+                                FlutterFlowTheme.of(context).primaryText,
                             inactiveColor: FlutterFlowTheme.of(context).accent4,
                             min: 0.0,
-                            max: 100.0,
-                            value: _model.sliderSpeechVolumeValue ??= 100.0,
+                            max: 1.0,
+                            value: _model.sliderSpeechVolumeValue ??= 1.0,
                             label: _model.sliderSpeechVolumeValue?.toString(),
                             divisions: 10,
-                            onChanged: (newValue) {
+                            onChanged: (newValue) async {
                               safeSetState(() =>
                                   _model.sliderSpeechVolumeValue = newValue);
+                              FFAppState().audioVolume =
+                                  _model.sliderSpeechVolumeValue!;
+                              safeSetState(() {});
                             },
                           ),
                         ),
@@ -304,9 +320,11 @@ class _PreferencesIconAudioWidgetState
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    fontSize: 32.0,
+                                    color: Colors.white,
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      32.0,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -329,14 +347,14 @@ class _PreferencesIconAudioWidgetState
                         child: Container(
                           width: 400.0,
                           child: Slider.adaptive(
-                            activeColor: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
+                            activeColor:
+                                FlutterFlowTheme.of(context).primaryText,
                             inactiveColor: FlutterFlowTheme.of(context).accent4,
                             min: 0.0,
-                            max: 30.0,
-                            value: _model.sliderFontSizeValue ??= 14.0,
+                            max: 2.0,
+                            value: _model.sliderFontSizeValue ??= 1.0,
                             label: _model.sliderFontSizeValue?.toString(),
-                            divisions: 15,
+                            divisions: 2,
                             onChanged: (newValue) {
                               safeSetState(
                                   () => _model.sliderFontSizeValue = newValue);
@@ -344,9 +362,10 @@ class _PreferencesIconAudioWidgetState
                             onChangeEnd: (newValue) async {
                               safeSetState(
                                   () => _model.sliderFontSizeValue = newValue);
-                              FFAppState().fontSize =
-                                  _model.sliderFontSizeValue!;
-                              safeSetState(() {});
+                              await actions.setFontSize(
+                                _model.sliderFontSizeValue!,
+                                FFAppState().fontSize,
+                              );
                             },
                           ),
                         ),
@@ -389,7 +408,10 @@ class _PreferencesIconAudioWidgetState
                                           .fontStyle,
                                     ),
                                     color: Colors.black,
-                                    fontSize: 40.0,
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      40.0,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                     fontStyle: FlutterFlowTheme.of(context)

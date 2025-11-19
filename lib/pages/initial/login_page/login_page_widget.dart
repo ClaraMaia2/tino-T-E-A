@@ -62,7 +62,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
         canPop: false,
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).primary,
           appBar: PreferredSize(
             preferredSize: Size.fromHeight(100.0),
             child: AppBar(
@@ -109,7 +109,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                   'Voltar',
                   style: GoogleFonts.baloo2(
                     color: Colors.white,
-                    fontSize: 34.0,
+                    fontSize: valueOrDefault<double>(
+                      FFAppState().fontSize,
+                      34.0,
+                    ),
                     decoration: TextDecoration.underline,
                   ),
                 ),
@@ -139,9 +142,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         'Login',
                         style: TextStyle(
                           fontFamily: 'Nunito Sans',
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          fontSize: 64.0,
+                          color: Colors.white,
+                          fontSize: valueOrDefault<double>(
+                            FFAppState().fontSize,
+                            64.0,
+                          ),
                         ),
                       ),
                     ),
@@ -168,9 +173,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     .bodyMedium
                                     .fontStyle,
                               ),
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              fontSize: 32.0,
+                              color: Colors.white,
+                              fontSize: valueOrDefault<double>(
+                                FFAppState().fontSize,
+                                32.0,
+                              ),
                               letterSpacing: 0.0,
                               fontWeight: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -231,6 +238,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         .labelMedium
                                         .fontStyle,
                                   ),
+                                  fontSize: valueOrDefault<double>(
+                                    FFAppState().fontSize,
+                                    14.0,
+                                  ),
                                   letterSpacing: 0.0,
                                   fontWeight: FlutterFlowTheme.of(context)
                                       .labelMedium
@@ -282,6 +293,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      14.0,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -322,9 +337,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     .bodyMedium
                                     .fontStyle,
                               ),
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              fontSize: 32.0,
+                              color: Colors.white,
+                              fontSize: valueOrDefault<double>(
+                                FFAppState().fontSize,
+                                32.0,
+                              ),
                               letterSpacing: 0.0,
                               fontWeight: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -384,6 +401,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .fontStyle,
+                                  ),
+                                  fontSize: valueOrDefault<double>(
+                                    FFAppState().fontSize,
+                                    14.0,
                                   ),
                                   letterSpacing: 0.0,
                                   fontWeight: FlutterFlowTheme.of(context)
@@ -449,6 +470,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       fontStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .fontStyle,
+                                    ),
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      14.0,
                                     ),
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
@@ -520,7 +545,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         .fontStyle,
                                   ),
                                   color: Colors.black,
-                                  fontSize: 40.0,
+                                  fontSize: valueOrDefault<double>(
+                                    FFAppState().fontSize,
+                                    40.0,
+                                  ),
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                   fontStyle: FlutterFlowTheme.of(context)

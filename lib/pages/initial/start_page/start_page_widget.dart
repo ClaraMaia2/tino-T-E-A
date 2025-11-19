@@ -53,7 +53,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
         canPop: false,
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).primary,
           body: SafeArea(
             top: true,
             child: Column(
@@ -70,9 +70,11 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                         'TinoTEA',
                         style: TextStyle(
                           fontFamily: 'Nunito Sans',
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          fontSize: 64.0,
+                          color: Colors.white,
+                          fontSize: valueOrDefault<double>(
+                            FFAppState().fontSize,
+                            64.0,
+                          ),
                         ),
                       ),
                     ),
@@ -114,7 +116,10 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                         .fontStyle,
                                   ),
                                   color: Colors.black,
-                                  fontSize: 40.0,
+                                  fontSize: valueOrDefault<double>(
+                                    FFAppState().fontSize,
+                                    40.0,
+                                  ),
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                   fontStyle: FlutterFlowTheme.of(context)
@@ -167,7 +172,10 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                                         .fontStyle,
                                   ),
                                   color: Colors.black,
-                                  fontSize: 40.0,
+                                  fontSize: valueOrDefault<double>(
+                                    FFAppState().fontSize,
+                                    40.0,
+                                  ),
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                   fontStyle: FlutterFlowTheme.of(context)

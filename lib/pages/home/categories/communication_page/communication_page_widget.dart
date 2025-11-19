@@ -56,7 +56,7 @@ class _CommunicationPageWidgetState extends State<CommunicationPageWidget> {
           appBar: PreferredSize(
             preferredSize: Size.fromHeight(100.0),
             child: AppBar(
-              backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+              backgroundColor: FlutterFlowTheme.of(context).primary,
               automaticallyImplyLeading: false,
               title: Row(
                 mainAxisSize: MainAxisSize.max,
@@ -105,10 +105,7 @@ class _CommunicationPageWidgetState extends State<CommunicationPageWidget> {
                                     Icons.person_outlined,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
-                                    size: valueOrDefault<double>(
-                                      FFAppState().iconSize,
-                                      50.0,
-                                    ),
+                                    size: 50.0,
                                   ),
                                   onPressed: () {
                                     print('IconButton pressed ...');
@@ -196,6 +193,10 @@ class _CommunicationPageWidgetState extends State<CommunicationPageWidget> {
                                                       .bodyMedium
                                                       .fontStyle,
                                             ),
+                                            fontSize: valueOrDefault<double>(
+                                              FFAppState().fontSize,
+                                              14.0,
+                                            ),
                                             letterSpacing: 0.0,
                                             fontWeight:
                                                 FlutterFlowTheme.of(context)
@@ -243,7 +244,10 @@ class _CommunicationPageWidgetState extends State<CommunicationPageWidget> {
                                                         .fontStyle,
                                               ),
                                               color: Colors.white,
-                                              fontSize: 20.0,
+                                              fontSize: valueOrDefault<double>(
+                                                FFAppState().fontSize,
+                                                20.0,
+                                              ),
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                               fontStyle:
@@ -290,7 +294,10 @@ class _CommunicationPageWidgetState extends State<CommunicationPageWidget> {
                                         .fontStyle,
                                   ),
                                   color: Colors.white,
-                                  fontSize: 20.0,
+                                  fontSize: valueOrDefault<double>(
+                                    FFAppState().fontSize,
+                                    20.0,
+                                  ),
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                   fontStyle: FlutterFlowTheme.of(context)
@@ -307,16 +314,17 @@ class _CommunicationPageWidgetState extends State<CommunicationPageWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         FlutterFlowIconButton(
                           borderRadius: 8.0,
-                          buttonSize: 50.0,
+                          buttonSize: 60.0,
                           icon: Icon(
                             Icons.arrow_back,
                             color: FlutterFlowTheme.of(context).primaryText,
                             size: valueOrDefault<double>(
                               FFAppState().iconSize,
-                              30.0,
+                              56.0,
                             ),
                           ),
                           onPressed: () async {
@@ -335,29 +343,36 @@ class _CommunicationPageWidgetState extends State<CommunicationPageWidget> {
                         ),
                         Opacity(
                           opacity: FFAppState().contrast,
-                          child: Text(
-                            'Voltar',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  font: GoogleFonts.baloo2(
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 0.0, 0.0, 0.0),
+                            child: Text(
+                              'Voltar',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.baloo2(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      20.0,
+                                    ),
+                                    letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .fontWeight,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .fontStyle,
+                                    decoration: TextDecoration.underline,
                                   ),
-                                  fontSize: 20.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontStyle,
-                                  decoration: TextDecoration.underline,
-                                ),
+                            ),
                           ),
                         ),
                       ],
@@ -374,7 +389,10 @@ class _CommunicationPageWidgetState extends State<CommunicationPageWidget> {
                                   .bodyMedium
                                   .fontStyle,
                             ),
-                            fontSize: 24.0,
+                            fontSize: valueOrDefault<double>(
+                              FFAppState().fontSize,
+                              24.0,
+                            ),
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
                             fontStyle: FlutterFlowTheme.of(context)

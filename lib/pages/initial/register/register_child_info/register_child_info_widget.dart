@@ -62,7 +62,7 @@ class _RegisterChildInfoWidgetState extends State<RegisterChildInfoWidget> {
         canPop: false,
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).primary,
           appBar: PreferredSize(
             preferredSize: Size.fromHeight(100.0),
             child: AppBar(
@@ -107,7 +107,10 @@ class _RegisterChildInfoWidgetState extends State<RegisterChildInfoWidget> {
                       'Voltar',
                       style: GoogleFonts.baloo2(
                         color: Colors.white,
-                        fontSize: 34.0,
+                        fontSize: valueOrDefault<double>(
+                          FFAppState().fontSize,
+                          34.0,
+                        ),
                         decoration: TextDecoration.underline,
                       ),
                     ),
@@ -125,7 +128,10 @@ class _RegisterChildInfoWidgetState extends State<RegisterChildInfoWidget> {
                                   .bodyMedium
                                   .fontStyle,
                             ),
-                            fontSize: 24.0,
+                            fontSize: valueOrDefault<double>(
+                              FFAppState().fontSize,
+                              24.0,
+                            ),
                             letterSpacing: 0.0,
                             fontWeight: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -162,7 +168,10 @@ class _RegisterChildInfoWidgetState extends State<RegisterChildInfoWidget> {
                         style: TextStyle(
                           fontFamily: 'Nunito Sans',
                           color: Colors.white,
-                          fontSize: 64.0,
+                          fontSize: valueOrDefault<double>(
+                            FFAppState().fontSize,
+                            64.0,
+                          ),
                         ),
                       ),
                     ),
@@ -186,7 +195,10 @@ class _RegisterChildInfoWidgetState extends State<RegisterChildInfoWidget> {
                                     .bodyMedium
                                     .fontStyle,
                               ),
-                              fontSize: 32.0,
+                              fontSize: valueOrDefault<double>(
+                                FFAppState().fontSize,
+                                32.0,
+                              ),
                               letterSpacing: 0.0,
                               fontWeight: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -304,6 +316,7 @@ class _RegisterChildInfoWidgetState extends State<RegisterChildInfoWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
+                                    fontSize: FFAppState().fontSize,
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -352,7 +365,10 @@ class _RegisterChildInfoWidgetState extends State<RegisterChildInfoWidget> {
                                   .bodyMedium
                                   .fontStyle,
                             ),
-                            fontSize: 32.0,
+                            fontSize: valueOrDefault<double>(
+                              FFAppState().fontSize,
+                              32.0,
+                            ),
                             letterSpacing: 0.0,
                             fontWeight: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -467,6 +483,7 @@ class _RegisterChildInfoWidgetState extends State<RegisterChildInfoWidget> {
                                         .bodyMedium
                                         .fontStyle,
                                   ),
+                                  fontSize: FFAppState().fontSize,
                                   letterSpacing: 0.0,
                                   fontWeight: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -527,7 +544,10 @@ class _RegisterChildInfoWidgetState extends State<RegisterChildInfoWidget> {
                                         .fontStyle,
                                   ),
                                   color: Colors.black,
-                                  fontSize: 40.0,
+                                  fontSize: valueOrDefault<double>(
+                                    FFAppState().fontSize,
+                                    40.0,
+                                  ),
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                   fontStyle: FlutterFlowTheme.of(context)

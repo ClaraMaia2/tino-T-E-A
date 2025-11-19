@@ -98,7 +98,10 @@ class _RegisterChildPhotoWidgetState extends State<RegisterChildPhotoWidget> {
                       'Voltar',
                       style: GoogleFonts.baloo2(
                         color: Colors.white,
-                        fontSize: 34.0,
+                        fontSize: valueOrDefault<double>(
+                          FFAppState().fontSize,
+                          34.0,
+                        ),
                         decoration: TextDecoration.underline,
                       ),
                     ),
@@ -116,7 +119,10 @@ class _RegisterChildPhotoWidgetState extends State<RegisterChildPhotoWidget> {
                                   .bodyMedium
                                   .fontStyle,
                             ),
-                            fontSize: 24.0,
+                            fontSize: valueOrDefault<double>(
+                              FFAppState().fontSize,
+                              24.0,
+                            ),
                             letterSpacing: 0.0,
                             fontWeight: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -137,141 +143,154 @@ class _RegisterChildPhotoWidgetState extends State<RegisterChildPhotoWidget> {
           ),
           body: SafeArea(
             top: true,
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Opacity(
-                  opacity: FFAppState().contrast,
-                  child: Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 33.0, 0.0, 0.0),
-                      child: Text(
-                        'Cadastro da criança',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'Nunito Sans',
-                          color: Colors.white,
-                          fontSize: 64.0,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Opacity(
-                  opacity: FFAppState().contrast,
-                  child: Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 46.0, 0.0, 0.0),
-                      child: Text(
-                        'Escolher foto de perfil',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.baloo2(
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontStyle,
-                              ),
-                              fontSize: 32.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontStyle,
-                            ),
-                      ),
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 21.0, 0.0, 0.0),
-                    child: Container(
-                      width: 222.0,
-                      height: 222.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          width: 2.0,
-                        ),
-                      ),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Opacity(
+                    opacity: FFAppState().contrast,
+                    child: Align(
                       alignment: AlignmentDirectional(0.0, 0.0),
-                      child: Opacity(
-                        opacity: FFAppState().contrast,
-                        child: Icon(
-                          Icons.person,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          size: 190.0,
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 33.0, 0.0, 0.0),
+                        child: Text(
+                          'Cadastro da criança',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'Nunito Sans',
+                            color: Colors.white,
+                            fontSize: valueOrDefault<double>(
+                              FFAppState().fontSize,
+                              64.0,
+                            ),
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                Opacity(
-                  opacity: FFAppState().contrast,
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 39.0, 0.0, 0.0),
-                    child: FFButtonWidget(
-                      onPressed: () async {
-                        context.pushNamed(
-                          RegisterParentInfoWidget.routeName,
-                          extra: <String, dynamic>{
-                            kTransitionInfoKey: TransitionInfo(
-                              hasTransition: true,
-                              transitionType: PageTransitionType.rightToLeft,
-                              duration: Duration(milliseconds: 1000),
-                            ),
-                          },
-                        );
-                      },
-                      text: 'Próximo',
-                      options: FFButtonOptions(
-                        width: 330.0,
-                        height: 79.0,
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).secondary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleMedium.override(
-                                  font: GoogleFonts.baloo2(
+                  Opacity(
+                    opacity: FFAppState().contrast,
+                    child: Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 46.0, 0.0, 0.0),
+                        child: Text(
+                          'Escolher foto de perfil',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    font: GoogleFonts.baloo2(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      32.0,
+                                    ),
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional(0.0, 0.0),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 21.0, 0.0, 0.0),
+                      child: Container(
+                        width: 222.0,
+                        height: 222.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            width: 2.0,
+                          ),
+                        ),
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: Opacity(
+                          opacity: FFAppState().contrast,
+                          child: Icon(
+                            Icons.person,
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            size: 190.0,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Opacity(
+                    opacity: FFAppState().contrast,
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 39.0, 0.0, 0.0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          context.pushNamed(
+                            RegisterParentInfoWidget.routeName,
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.rightToLeft,
+                                duration: Duration(milliseconds: 1000),
+                              ),
+                            },
+                          );
+                        },
+                        text: 'Próximo',
+                        options: FFButtonOptions(
+                          width: 330.0,
+                          height: 79.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).secondary,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleMedium.override(
+                                    font: GoogleFonts.baloo2(
+                                      fontWeight: FontWeight.normal,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .fontStyle,
+                                    ),
+                                    color: Colors.black,
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      40.0,
+                                    ),
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .fontStyle,
                                   ),
-                                  color: Colors.black,
-                                  fontSize: 40.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.normal,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .fontStyle,
-                                ),
-                        elevation: 0.0,
-                        borderSide: BorderSide(
-                          color: Colors.black,
-                          width: 2.0,
+                          elevation: 0.0,
+                          borderSide: BorderSide(
+                            color: Colors.black,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
-                        borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ].addToEnd(SizedBox(height: 20.0)),
+              ),
             ),
           ),
         ),

@@ -97,17 +97,12 @@ class _IconsTextsPageWidgetState extends State<IconsTextsPageWidget> {
                                     0.0, 0.0, 12.0, 0.0),
                                 child: FlutterFlowIconButton(
                                   borderRadius: 0.0,
-                                  buttonSize: 50.0,
-                                  fillColor:
-                                      FlutterFlowTheme.of(context).primary,
+                                  buttonSize: 60.0,
                                   icon: Icon(
                                     Icons.person_outlined,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
-                                    size: valueOrDefault<double>(
-                                      FFAppState().iconSize,
-                                      50.0,
-                                    ),
+                                    size: 50.0,
                                   ),
                                   onPressed: () {
                                     print('IconButton pressed ...');
@@ -145,7 +140,6 @@ class _IconsTextsPageWidgetState extends State<IconsTextsPageWidget> {
           body: SafeArea(
             top: true,
             child: SingleChildScrollView(
-              primary: false,
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -194,7 +188,10 @@ class _IconsTextsPageWidgetState extends State<IconsTextsPageWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                                    fontSize: 20.0,
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      20.0,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -219,7 +216,10 @@ class _IconsTextsPageWidgetState extends State<IconsTextsPageWidget> {
                                   .bodyMedium
                                   .fontStyle,
                             ),
-                            fontSize: 24.0,
+                            fontSize: valueOrDefault<double>(
+                              FFAppState().fontSize,
+                              24.0,
+                            ),
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
                             fontStyle: FlutterFlowTheme.of(context)
@@ -247,7 +247,10 @@ class _IconsTextsPageWidgetState extends State<IconsTextsPageWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                                    fontSize: 24.0,
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      24.0,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -347,7 +350,10 @@ class _IconsTextsPageWidgetState extends State<IconsTextsPageWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                                    fontSize: 24.0,
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      24.0,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium

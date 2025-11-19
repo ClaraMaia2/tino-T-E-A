@@ -82,52 +82,71 @@ class _ScholarPageWidgetState extends State<ScholarPageWidget> {
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(70.0, 0.0, 13.0, 0.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: Opacity(
-                            opacity: FFAppState().contrast,
-                            child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 12.0, 0.0),
-                                child: FlutterFlowIconButton(
-                                  borderRadius: 0.0,
-                                  buttonSize: 50.0,
-                                  fillColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  icon: Icon(
-                                    Icons.person_outlined,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: valueOrDefault<double>(
-                                      FFAppState().iconSize,
-                                      50.0,
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed(
+                          LockSupervisionPageWidget.routeName,
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.rightToLeft,
+                              duration: Duration(milliseconds: 1000),
+                            ),
+                          },
+                        );
+                      },
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Opacity(
+                              opacity: FFAppState().contrast,
+                              child: Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 12.0, 0.0),
+                                  child: FlutterFlowIconButton(
+                                    borderRadius: 0.0,
+                                    buttonSize: 50.0,
+                                    fillColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    icon: Icon(
+                                      Icons.person_outlined,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      size: valueOrDefault<double>(
+                                        FFAppState().iconSize,
+                                        50.0,
+                                      ),
                                     ),
+                                    onPressed: () {
+                                      print('IconButton pressed ...');
+                                    },
                                   ),
-                                  onPressed: () {
-                                    print('IconButton pressed ...');
-                                  },
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        Text(
-                          'Supervisão',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Nunito Sans',
-                                    fontSize: 20.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
+                          Text(
+                            'Supervisão',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Nunito Sans',
+                                  fontSize: 20.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -191,6 +210,10 @@ class _ScholarPageWidgetState extends State<ScholarPageWidget> {
                                                       .bodyMedium
                                                       .fontStyle,
                                             ),
+                                            fontSize: valueOrDefault<double>(
+                                              FFAppState().fontSize,
+                                              14.0,
+                                            ),
                                             letterSpacing: 0.0,
                                             fontWeight:
                                                 FlutterFlowTheme.of(context)
@@ -235,7 +258,10 @@ class _ScholarPageWidgetState extends State<ScholarPageWidget> {
                                                       .fontStyle,
                                             ),
                                             color: Colors.white,
-                                            fontSize: 20.0,
+                                            fontSize: valueOrDefault<double>(
+                                              FFAppState().fontSize,
+                                              20.0,
+                                            ),
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                             fontStyle:
@@ -284,7 +310,10 @@ class _ScholarPageWidgetState extends State<ScholarPageWidget> {
                                           .fontStyle,
                                     ),
                                     color: Colors.white,
-                                    fontSize: 20.0,
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      20.0,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                     fontStyle: FlutterFlowTheme.of(context)
@@ -307,7 +336,7 @@ class _ScholarPageWidgetState extends State<ScholarPageWidget> {
                           0,
                           16.0,
                           0,
-                          16.0,
+                          120.0,
                         ),
                         shrinkWrap: true,
                         scrollDirection: Axis.vertical,

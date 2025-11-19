@@ -189,6 +189,10 @@ class _WishesPageWidgetState extends State<WishesPageWidget> {
                                                     .bodyMedium
                                                     .fontStyle,
                                           ),
+                                          fontSize: valueOrDefault<double>(
+                                            FFAppState().fontSize,
+                                            14.0,
+                                          ),
                                           letterSpacing: 0.0,
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
@@ -235,7 +239,10 @@ class _WishesPageWidgetState extends State<WishesPageWidget> {
                                                       .fontStyle,
                                             ),
                                             color: Colors.white,
-                                            fontSize: 20.0,
+                                            fontSize: valueOrDefault<double>(
+                                              FFAppState().fontSize,
+                                              20.0,
+                                            ),
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                             fontStyle:
@@ -282,7 +289,10 @@ class _WishesPageWidgetState extends State<WishesPageWidget> {
                                           .fontStyle,
                                     ),
                                     color: Colors.white,
-                                    fontSize: 20.0,
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      20.0,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                     fontStyle: FlutterFlowTheme.of(context)
@@ -305,13 +315,13 @@ class _WishesPageWidgetState extends State<WishesPageWidget> {
                           opacity: FFAppState().contrast,
                           child: FlutterFlowIconButton(
                             borderRadius: 8.0,
-                            buttonSize: 50.0,
+                            buttonSize: 60.0,
                             icon: Icon(
                               Icons.arrow_back,
                               color: FlutterFlowTheme.of(context).primaryText,
                               size: valueOrDefault<double>(
                                 FFAppState().iconSize,
-                                30.0,
+                                56.0,
                               ),
                             ),
                             onPressed: () async {
@@ -331,29 +341,36 @@ class _WishesPageWidgetState extends State<WishesPageWidget> {
                         ),
                         Opacity(
                           opacity: FFAppState().contrast,
-                          child: Text(
-                            'Voltar',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  font: GoogleFonts.baloo2(
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 0.0, 0.0, 0.0),
+                            child: Text(
+                              'Voltar',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.baloo2(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      20.0,
+                                    ),
+                                    letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .fontWeight,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .fontStyle,
+                                    decoration: TextDecoration.underline,
                                   ),
-                                  fontSize: 20.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontStyle,
-                                  decoration: TextDecoration.underline,
-                                ),
+                            ),
                           ),
                         ),
                       ],

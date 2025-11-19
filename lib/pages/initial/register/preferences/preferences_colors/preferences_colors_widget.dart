@@ -54,28 +54,31 @@ class _PreferencesColorsWidgetState extends State<PreferencesColorsWidget> {
         canPop: false,
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).primary,
           appBar: PreferredSize(
             preferredSize: Size.fromHeight(100.0),
             child: AppBar(
               backgroundColor: FlutterFlowTheme.of(context).primary,
               automaticallyImplyLeading: false,
-              leading: FlutterFlowIconButton(
-                borderColor: Colors.transparent,
-                borderRadius: 30.0,
-                borderWidth: 1.0,
-                buttonSize: 60.0,
-                icon: Icon(
-                  Icons.arrow_back_rounded,
-                  color: Colors.white,
-                  size: valueOrDefault<double>(
-                    FFAppState().iconSize,
-                    60.0,
+              leading: Opacity(
+                opacity: FFAppState().contrast,
+                child: FlutterFlowIconButton(
+                  borderColor: Colors.transparent,
+                  borderRadius: 30.0,
+                  borderWidth: 1.0,
+                  buttonSize: 60.0,
+                  icon: Icon(
+                    Icons.arrow_back_rounded,
+                    color: Colors.white,
+                    size: valueOrDefault<double>(
+                      FFAppState().iconSize,
+                      60.0,
+                    ),
                   ),
+                  onPressed: () async {
+                    context.pushNamed(PreferencesIconAudioWidget.routeName);
+                  },
                 ),
-                onPressed: () async {
-                  context.pushNamed(PreferencesIconAudioWidget.routeName);
-                },
               ),
               title: Row(
                 mainAxisSize: MainAxisSize.max,
@@ -87,7 +90,10 @@ class _PreferencesColorsWidgetState extends State<PreferencesColorsWidget> {
                       'Voltar',
                       style: GoogleFonts.baloo2(
                         color: Colors.white,
-                        fontSize: 34.0,
+                        fontSize: valueOrDefault<double>(
+                          FFAppState().fontSize,
+                          34.0,
+                        ),
                         decoration: TextDecoration.underline,
                       ),
                     ),
@@ -105,7 +111,10 @@ class _PreferencesColorsWidgetState extends State<PreferencesColorsWidget> {
                                   .bodyMedium
                                   .fontStyle,
                             ),
-                            fontSize: 24.0,
+                            fontSize: valueOrDefault<double>(
+                              FFAppState().fontSize,
+                              24.0,
+                            ),
                             letterSpacing: 0.0,
                             fontWeight: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -139,40 +148,48 @@ class _PreferencesColorsWidgetState extends State<PreferencesColorsWidget> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontFamily: 'Nunito Sans',
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          fontSize: 64.0,
+                          color: Colors.white,
+                          fontSize: valueOrDefault<double>(
+                            FFAppState().fontSize,
+                            64.0,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(-1.0, 0.0),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(30.0, 66.0, 0.0, 0.0),
-                      child: Text(
-                        'Cores',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.baloo2(
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontStyle,
-                              ),
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              fontSize: 32.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontStyle,
-                            ),
+                  Opacity(
+                    opacity: FFAppState().contrast,
+                    child: Align(
+                      alignment: AlignmentDirectional(-1.0, 0.0),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            30.0, 66.0, 0.0, 0.0),
+                        child: Text(
+                          'Cores',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    font: GoogleFonts.baloo2(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    color: Colors.white,
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      32.0,
+                                    ),
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                        ),
                       ),
                     ),
                   ),
@@ -191,9 +208,11 @@ class _PreferencesColorsWidgetState extends State<PreferencesColorsWidget> {
                                     .bodyMedium
                                     .fontStyle,
                               ),
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              fontSize: 24.0,
+                              color: Colors.white,
+                              fontSize: valueOrDefault<double>(
+                                FFAppState().fontSize,
+                                24.0,
+                              ),
                               letterSpacing: 0.0,
                               fontWeight: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -205,48 +224,51 @@ class _PreferencesColorsWidgetState extends State<PreferencesColorsWidget> {
                       ),
                     ),
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Container(
-                            width: 110.0,
-                            height: 92.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).accent1,
-                              borderRadius: BorderRadius.circular(7.0),
-                              border: Border.all(
-                                width: 1.0,
+                  Opacity(
+                    opacity: FFAppState().contrast,
+                    child: Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            30.0, 0.0, 30.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Container(
+                              width: 110.0,
+                              height: 92.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).accent1,
+                                borderRadius: BorderRadius.circular(7.0),
+                                border: Border.all(
+                                  width: 1.0,
+                                ),
                               ),
                             ),
-                          ),
-                          Container(
-                            width: 110.0,
-                            height: 92.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).accent3,
-                              borderRadius: BorderRadius.circular(7.0),
-                              border: Border.all(
-                                width: 1.0,
+                            Container(
+                              width: 110.0,
+                              height: 92.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).accent3,
+                                borderRadius: BorderRadius.circular(7.0),
+                                border: Border.all(
+                                  width: 1.0,
+                                ),
                               ),
                             ),
-                          ),
-                          Container(
-                            width: 110.0,
-                            height: 92.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).accent2,
-                              borderRadius: BorderRadius.circular(7.0),
-                              border: Border.all(
-                                width: 1.0,
+                            Container(
+                              width: 110.0,
+                              height: 92.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).accent2,
+                                borderRadius: BorderRadius.circular(7.0),
+                                border: Border.all(
+                                  width: 1.0,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -269,9 +291,11 @@ class _PreferencesColorsWidgetState extends State<PreferencesColorsWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    fontSize: 24.0,
+                                    color: Colors.white,
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      24.0,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -284,48 +308,60 @@ class _PreferencesColorsWidgetState extends State<PreferencesColorsWidget> {
                       ),
                     ),
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Container(
-                            width: 110.0,
-                            height: 92.0,
-                            decoration: BoxDecoration(
-                              color: Color(0xFF1E2A2E),
-                              borderRadius: BorderRadius.circular(7.0),
-                              border: Border.all(
-                                width: 1.0,
+                  Opacity(
+                    opacity: FFAppState().contrast,
+                    child: Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            30.0, 0.0, 30.0, 0.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            setDarkModeSetting(context, ThemeMode.dark);
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Container(
+                                width: 110.0,
+                                height: 92.0,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFF1E2A2E),
+                                  borderRadius: BorderRadius.circular(7.0),
+                                  border: Border.all(
+                                    width: 1.0,
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                          Container(
-                            width: 110.0,
-                            height: 92.0,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7.0),
-                              border: Border.all(
-                                width: 1.0,
+                              Container(
+                                width: 110.0,
+                                height: 92.0,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(7.0),
+                                  border: Border.all(
+                                    width: 1.0,
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                          Container(
-                            width: 110.0,
-                            height: 92.0,
-                            decoration: BoxDecoration(
-                              color: Color(0xFF7CCBA2),
-                              borderRadius: BorderRadius.circular(7.0),
-                              border: Border.all(
-                                width: 1.0,
+                              Container(
+                                width: 110.0,
+                                height: 92.0,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFF7CCBA2),
+                                  borderRadius: BorderRadius.circular(7.0),
+                                  border: Border.all(
+                                    width: 1.0,
+                                  ),
+                                ),
                               ),
-                            ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
                     ),
                   ),
@@ -352,9 +388,11 @@ class _PreferencesColorsWidgetState extends State<PreferencesColorsWidget> {
                                           .labelMedium
                                           .fontStyle,
                                     ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    fontSize: 24.0,
+                                    color: Colors.white,
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      24.0,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -365,10 +403,8 @@ class _PreferencesColorsWidgetState extends State<PreferencesColorsWidget> {
                                   ),
                           buttonPosition: RadioButtonPosition.left,
                           direction: Axis.horizontal,
-                          radioButtonColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          inactiveRadioButtonColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
+                          radioButtonColor: Colors.white,
+                          inactiveRadioButtonColor: Colors.white,
                           toggleable: false,
                           horizontalAlignment: WrapAlignment.center,
                           verticalAlignment: WrapCrossAlignment.start,
@@ -412,7 +448,10 @@ class _PreferencesColorsWidgetState extends State<PreferencesColorsWidget> {
                                           .fontStyle,
                                     ),
                                     color: Colors.black,
-                                    fontSize: 40.0,
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      40.0,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                     fontStyle: FlutterFlowTheme.of(context)

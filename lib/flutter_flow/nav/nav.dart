@@ -222,6 +222,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: IconsTextsPageWidget.routeName,
           path: IconsTextsPageWidget.routePath,
           builder: (context, params) => IconsTextsPageWidget(),
+        ),
+        FFRoute(
+          name: HelpPageWidget.routeName,
+          path: HelpPageWidget.routePath,
+          builder: (context, params) => HelpPageWidget(),
+        ),
+        FFRoute(
+          name: LockSupervisionPageWidget.routeName,
+          path: LockSupervisionPageWidget.routePath,
+          builder: (context, params) => LockSupervisionPageWidget(),
+        ),
+        FFRoute(
+          name: SupervisionPageWidget.routeName,
+          path: SupervisionPageWidget.routePath,
+          builder: (context, params) => SupervisionPageWidget(),
+        ),
+        FFRoute(
+          name: ForgotPINPageWidget.routeName,
+          path: ForgotPINPageWidget.routePath,
+          builder: (context, params) => ForgotPINPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
