@@ -36,6 +36,32 @@ class _PreferencesIconAudioWidgetState
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
+  double _fontSizeFromSlider(double value) {
+    switch (value.round()) {
+      case 0:
+        return 10.0;
+      case 1:
+        return 24.0;
+      case 2:
+        return 40.0;
+      default:
+        return 24.0;
+    }
+  }
+
+  String _fontLabelFromSlider(double value) {
+    switch (value.round()) {
+      case 0:
+        return 'Pequena';
+      case 1:
+        return 'Média';
+      case 2:
+        return 'Grande';
+      default:
+        return '';
+    }
+  }
+
   @override
   void dispose() {
     _model.dispose();
@@ -157,218 +183,248 @@ class _PreferencesIconAudioWidgetState
                         style: TextStyle(
                           fontFamily: 'Nunito Sans',
                           color: Colors.white,
-                          fontSize: valueOrDefault<double>(
-                            FFAppState().fontSize,
-                            64.0,
-                          ),
+                          fontSize: 64.0,
                         ),
                       ),
                     ),
                   ),
-                  Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Align(
-                      alignment: AlignmentDirectional(-1.0, 0.0),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            30.0, 66.0, 0.0, 0.0),
-                        child: Text(
-                          'Tamanho dos ícones',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.baloo2(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    color: Colors.white,
-                                    fontSize: valueOrDefault<double>(
-                                      FFAppState().fontSize,
-                                      32.0,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
+                  Center(
+                    child: SizedBox(
+                      width: 440,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Opacity(
+                            opacity: FFAppState().contrast,
+                            child: Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    30.0, 66.0, 0.0, 0.0),
+                                child: Text(
+                                  'Tamanho dos ícones',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        font: GoogleFonts.baloo2(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: Colors.white,
+                                        fontSize: valueOrDefault<double>(
+                                          FFAppState().fontSize,
+                                          32.0,
+                                        ),
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Opacity(
+                            opacity: FFAppState().contrast,
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: Container(
+                                  width: 400.0,
+                                  child: Slider.adaptive(
+                                    activeColor: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    inactiveColor:
+                                        FlutterFlowTheme.of(context).accent4,
+                                    min: 0.0,
+                                    max: 60.0,
+                                    value: _model.sliderIconSizeValue ??= 30.0,
+                                    label:
+                                        _model.sliderIconSizeValue?.toString(),
+                                    divisions: 6,
+                                    onChanged: (newValue) {
+                                      safeSetState(() => _model
+                                          .sliderIconSizeValue = newValue);
+                                    },
+                                    onChangeEnd: (newValue) async {
+                                      safeSetState(() => _model
+                                          .sliderIconSizeValue = newValue);
+                                      FFAppState().iconSize =
+                                          _model.sliderIconSizeValue!;
+                                      safeSetState(() {});
+                                    },
                                   ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                        child: Container(
-                          width: 400.0,
-                          child: Slider.adaptive(
-                            activeColor:
-                                FlutterFlowTheme.of(context).primaryText,
-                            inactiveColor: FlutterFlowTheme.of(context).accent4,
-                            min: 0.0,
-                            max: 60.0,
-                            value: _model.sliderIconSizeValue ??= 30.0,
-                            label: _model.sliderIconSizeValue?.toString(),
-                            divisions: 6,
-                            onChanged: (newValue) {
-                              safeSetState(
-                                  () => _model.sliderIconSizeValue = newValue);
-                            },
-                            onChangeEnd: (newValue) async {
-                              safeSetState(
-                                  () => _model.sliderIconSizeValue = newValue);
-                              FFAppState().iconSize =
-                                  _model.sliderIconSizeValue!;
-                              safeSetState(() {});
-                            },
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Align(
-                      alignment: AlignmentDirectional(-1.0, 0.0),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            31.0, 12.0, 0.0, 0.0),
-                        child: Text(
-                          'Volume da fala',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.baloo2(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    color: Colors.white,
-                                    fontSize: valueOrDefault<double>(
-                                      FFAppState().fontSize,
-                                      32.0,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
+                          Opacity(
+                            opacity: FFAppState().contrast,
+                            child: Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    31.0, 12.0, 0.0, 0.0),
+                                child: Text(
+                                  'Volume da fala',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        font: GoogleFonts.baloo2(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: Colors.white,
+                                        fontSize: valueOrDefault<double>(
+                                          FFAppState().fontSize,
+                                          32.0,
+                                        ),
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Opacity(
+                            opacity: FFAppState().contrast,
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: Container(
+                                  width: 400.0,
+                                  child: Slider.adaptive(
+                                    activeColor: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    inactiveColor:
+                                        FlutterFlowTheme.of(context).accent4,
+                                    min: 0.0,
+                                    max: 1.0,
+                                    value: _model.sliderSpeechVolumeValue ??=
+                                        1.0,
+                                    label: _model.sliderSpeechVolumeValue
+                                        ?.toString(),
+                                    divisions: 10,
+                                    onChanged: (newValue) async {
+                                      safeSetState(() => _model
+                                          .sliderSpeechVolumeValue = newValue);
+                                      FFAppState().audioVolume =
+                                          _model.sliderSpeechVolumeValue!;
+                                      safeSetState(() {});
+                                    },
                                   ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                        child: Container(
-                          width: 400.0,
-                          child: Slider.adaptive(
-                            activeColor:
-                                FlutterFlowTheme.of(context).primaryText,
-                            inactiveColor: FlutterFlowTheme.of(context).accent4,
-                            min: 0.0,
-                            max: 1.0,
-                            value: _model.sliderSpeechVolumeValue ??= 1.0,
-                            label: _model.sliderSpeechVolumeValue?.toString(),
-                            divisions: 10,
-                            onChanged: (newValue) async {
-                              safeSetState(() =>
-                                  _model.sliderSpeechVolumeValue = newValue);
-                              FFAppState().audioVolume =
-                                  _model.sliderSpeechVolumeValue!;
-                              safeSetState(() {});
-                            },
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Align(
-                      alignment: AlignmentDirectional(-1.0, 0.0),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            30.0, 12.0, 0.0, 0.0),
-                        child: Text(
-                          'Tamanho da fonte',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.baloo2(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
+                          Opacity(
+                            opacity: FFAppState().contrast,
+                            child: Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    30.0, 12.0, 0.0, 0.0),
+                                child: Text(
+                                  'Tamanho da fonte',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        font: GoogleFonts.baloo2(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: Colors.white,
+                                        fontSize: valueOrDefault<double>(
+                                          FFAppState().fontSize,
+                                          32.0,
+                                        ),
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Opacity(
+                            opacity: FFAppState().contrast,
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: Container(
+                                  width: 400.0,
+                                  child: Slider.adaptive(
+                                    activeColor: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    inactiveColor:
+                                        FlutterFlowTheme.of(context).accent4,
+                                    min: 0.0,
+                                    max: 2.0,
+                                    divisions: 2,
+                                    value: _model.sliderFontSizeValue ??= 1.0,
+                                    label: _fontLabelFromSlider(
+                                      _model.sliderFontSizeValue ?? 1.0,
                                     ),
-                                    color: Colors.white,
-                                    fontSize: valueOrDefault<double>(
-                                      FFAppState().fontSize,
-                                      32.0,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
+                                    onChanged: (newValue) {
+                                      safeSetState(() {
+                                        _model.sliderFontSizeValue = newValue;
+                                      });
+                                    },
+                                    onChangeEnd: (newValue) async {
+                                      final fontSize =
+                                          _fontSizeFromSlider(newValue);
+
+                                      FFAppState().update(() {
+                                        FFAppState().fontSize = fontSize;
+                                      });
+
+                                      await actions.setFontSize(
+                                        newValue,
+                                        fontSize,
+                                      );
+                                    },
                                   ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                        child: Container(
-                          width: 400.0,
-                          child: Slider.adaptive(
-                            activeColor:
-                                FlutterFlowTheme.of(context).primaryText,
-                            inactiveColor: FlutterFlowTheme.of(context).accent4,
-                            min: 0.0,
-                            max: 2.0,
-                            value: _model.sliderFontSizeValue ??= 1.0,
-                            label: _model.sliderFontSizeValue?.toString(),
-                            divisions: 2,
-                            onChanged: (newValue) {
-                              safeSetState(
-                                  () => _model.sliderFontSizeValue = newValue);
-                            },
-                            onChangeEnd: (newValue) async {
-                              safeSetState(
-                                  () => _model.sliderFontSizeValue = newValue);
-                              await actions.setFontSize(
-                                _model.sliderFontSizeValue!,
-                                FFAppState().fontSize,
-                              );
-                            },
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
+                        ],
                       ),
                     ),
                   ),

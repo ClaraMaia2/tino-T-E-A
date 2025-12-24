@@ -172,10 +172,7 @@ class _ConsentWidgetState extends State<ConsentWidget> {
                           style: TextStyle(
                             fontFamily: 'Nunito Sans',
                             color: Colors.white,
-                            fontSize: valueOrDefault<double>(
-                              FFAppState().fontSize,
-                              55.0,
-                            ),
+                            fontSize: 55.0,
                           ),
                         ),
                       ),

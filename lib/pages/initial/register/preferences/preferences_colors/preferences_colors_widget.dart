@@ -149,26 +149,79 @@ class _PreferencesColorsWidgetState extends State<PreferencesColorsWidget> {
                         style: TextStyle(
                           fontFamily: 'Nunito Sans',
                           color: Colors.white,
-                          fontSize: valueOrDefault<double>(
-                            FFAppState().fontSize,
-                            64.0,
-                          ),
+                          fontSize: 64.0,
                         ),
                       ),
                     ),
                   ),
-                  Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Align(
-                      alignment: AlignmentDirectional(-1.0, 0.0),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            30.0, 66.0, 0.0, 0.0),
-                        child: Text(
-                          'Cores',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.baloo2(
+                  Center(
+                    child: SizedBox(
+                      width: 500,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Opacity(
+                            opacity: FFAppState().contrast,
+                            child: Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 66.0, 0.0, 0.0),
+                                child: Text(
+                                  'Cores',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        font: GoogleFonts.baloo2(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: Colors.white,
+                                        fontSize: valueOrDefault<double>(
+                                          FFAppState().fontSize,
+                                          32.0,
+                                        ),
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Opacity(
+                            opacity: FFAppState().contrast,
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Text(
+                                'TEMA ALTERNATIVO',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.baloo2(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      color: Colors.white,
+                                      fontSize: valueOrDefault<double>(
+                                        FFAppState().fontSize,
+                                        24.0,
+                                      ),
+                                      letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .fontWeight,
@@ -176,211 +229,193 @@ class _PreferencesColorsWidgetState extends State<PreferencesColorsWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                                    color: Colors.white,
-                                    fontSize: valueOrDefault<double>(
-                                      FFAppState().fontSize,
-                                      32.0,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      child: Text(
-                        'TEMA ALTERNATIVO',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.baloo2(
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontStyle,
-                              ),
-                              color: Colors.white,
-                              fontSize: valueOrDefault<double>(
-                                FFAppState().fontSize,
-                                24.0,
-                              ),
-                              letterSpacing: 0.0,
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontStyle,
-                            ),
-                      ),
-                    ),
-                  ),
-                  Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            30.0, 0.0, 30.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Container(
-                              width: 110.0,
-                              height: 92.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).accent1,
-                                borderRadius: BorderRadius.circular(7.0),
-                                border: Border.all(
-                                  width: 1.0,
-                                ),
                               ),
                             ),
-                            Container(
-                              width: 110.0,
-                              height: 92.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).accent3,
-                                borderRadius: BorderRadius.circular(7.0),
-                                border: Border.all(
-                                  width: 1.0,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: 110.0,
-                              height: 92.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).accent2,
-                                borderRadius: BorderRadius.circular(7.0),
-                                border: Border.all(
-                                  width: 1.0,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                        child: Text(
-                          'TEMA ESCURO',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.baloo2(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    color: Colors.white,
-                                    fontSize: valueOrDefault<double>(
-                                      FFAppState().fontSize,
-                                      24.0,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            30.0, 0.0, 30.0, 0.0),
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            setDarkModeSetting(context, ThemeMode.dark);
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Container(
-                                width: 110.0,
-                                height: 92.0,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFF1E2A2E),
-                                  borderRadius: BorderRadius.circular(7.0),
-                                  border: Border.all(
-                                    width: 1.0,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: 110.0,
-                                height: 92.0,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(7.0),
-                                  border: Border.all(
-                                    width: 1.0,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: 110.0,
-                                height: 92.0,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFF7CCBA2),
-                                  borderRadius: BorderRadius.circular(7.0),
-                                  border: Border.all(
-                                    width: 1.0,
-                                  ),
-                                ),
-                              ),
-                            ],
                           ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Align(
-                      alignment: AlignmentDirectional(-1.0, 0.0),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            30.0, 30.0, 0.0, 0.0),
-                        child: FlutterFlowRadioButton(
-                          options: ['Usar tema padrão'].toList(),
-                          onChanged: (val) => safeSetState(() {}),
-                          controller: _model.radioButtonValueController ??=
-                              FormFieldController<String>(null),
-                          optionHeight: 32.0,
-                          textStyle:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    font: GoogleFonts.baloo2(
+                          Opacity(
+                            opacity: FFAppState().contrast,
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 30.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      width: 110.0,
+                                      height: 92.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent1,
+                                        borderRadius:
+                                            BorderRadius.circular(7.0),
+                                        border: Border.all(
+                                          width: 1.0,
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: 110.0,
+                                      height: 92.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent3,
+                                        borderRadius:
+                                            BorderRadius.circular(7.0),
+                                        border: Border.all(
+                                          width: 1.0,
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: 110.0,
+                                      height: 92.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent2,
+                                        borderRadius:
+                                            BorderRadius.circular(7.0),
+                                        border: Border.all(
+                                          width: 1.0,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Opacity(
+                            opacity: FFAppState().contrast,
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 12.0, 0.0, 0.0),
+                                child: Text(
+                                  'TEMA ESCURO',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        font: GoogleFonts.baloo2(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                        color: Colors.white,
+                                        fontSize: valueOrDefault<double>(
+                                          FFAppState().fontSize,
+                                          24.0,
+                                        ),
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Opacity(
+                            opacity: FFAppState().contrast,
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 30.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    setDarkModeSetting(context, ThemeMode.dark);
+                                  },
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        width: 110.0,
+                                        height: 92.0,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF1E2A2E),
+                                          borderRadius:
+                                              BorderRadius.circular(7.0),
+                                          border: Border.all(
+                                            width: 1.0,
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        width: 110.0,
+                                        height: 92.0,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(7.0),
+                                          border: Border.all(
+                                            width: 1.0,
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        width: 110.0,
+                                        height: 92.0,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF7CCBA2),
+                                          borderRadius:
+                                              BorderRadius.circular(7.0),
+                                          border: Border.all(
+                                            width: 1.0,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Opacity(
+                            opacity: FFAppState().contrast,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  30.0, 30.0, 0.0, 0.0),
+                              child: FlutterFlowRadioButton(
+                                options: ['Usar tema padrão'].toList(),
+                                onChanged: (val) => safeSetState(() {}),
+                                controller:
+                                    _model.radioButtonValueController ??=
+                                        FormFieldController<String>(null),
+                                optionHeight: 60,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      font: GoogleFonts.baloo2(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontStyle,
+                                      ),
+                                      color: Colors.white,
+                                      fontSize: valueOrDefault<double>(
+                                        FFAppState().fontSize,
+                                        24.0,
+                                      ),
+                                      letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .fontWeight,
@@ -388,27 +423,17 @@ class _PreferencesColorsWidgetState extends State<PreferencesColorsWidget> {
                                           .labelMedium
                                           .fontStyle,
                                     ),
-                                    color: Colors.white,
-                                    fontSize: valueOrDefault<double>(
-                                      FFAppState().fontSize,
-                                      24.0,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontStyle,
-                                  ),
-                          buttonPosition: RadioButtonPosition.left,
-                          direction: Axis.horizontal,
-                          radioButtonColor: Colors.white,
-                          inactiveRadioButtonColor: Colors.white,
-                          toggleable: false,
-                          horizontalAlignment: WrapAlignment.center,
-                          verticalAlignment: WrapCrossAlignment.start,
-                        ),
+                                buttonPosition: RadioButtonPosition.left,
+                                direction: Axis.horizontal,
+                                radioButtonColor: Colors.white,
+                                inactiveRadioButtonColor: Colors.white,
+                                toggleable: false,
+                                horizontalAlignment: WrapAlignment.center,
+                                verticalAlignment: WrapCrossAlignment.start,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -416,7 +441,7 @@ class _PreferencesColorsWidgetState extends State<PreferencesColorsWidget> {
                     opacity: FFAppState().contrast,
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 19.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 19.0, 0.0, 20.0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           context.pushNamed(

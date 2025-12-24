@@ -105,7 +105,7 @@ class FFAppState extends ChangeNotifier {
     prefs.setDouble('ff_iconSize', value);
   }
 
-  double _fontSize = 0.0;
+  double _fontSize = 24.0;
   double get fontSize => _fontSize;
   set fontSize(double value) {
     _fontSize = value;

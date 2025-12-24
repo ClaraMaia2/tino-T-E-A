@@ -71,10 +71,7 @@ class _StartPageWidgetState extends State<StartPageWidget> {
                         style: TextStyle(
                           fontFamily: 'Nunito Sans',
                           color: Colors.white,
-                          fontSize: valueOrDefault<double>(
-                            FFAppState().fontSize,
-                            64.0,
-                          ),
+                          fontSize: 64.0,
                         ),
                       ),
                     ),
