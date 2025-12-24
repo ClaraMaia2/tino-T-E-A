@@ -31,6 +31,71 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     _model = createModel(context, () => HomePageModel());
   }
 
+  Widget categoryCard({
+    required BuildContext context,
+    required String title,
+    required String imagePath,
+    required VoidCallback onTap,
+  }) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final double cardWidth =
+            constraints.maxWidth > 600 ? 220 : constraints.maxWidth / 2 - 20;
+
+        return InkWell(
+          onTap: onTap,
+          child: SizedBox(
+            width: cardWidth,
+            child: AspectRatio(
+              aspectRatio:
+                  3 / 4, // 🔒 proporção fixa (não depende da altura da tela)
+              child: Material(
+                elevation: 4,
+                borderRadius: BorderRadius.circular(10),
+                child: Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondary,
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: FlutterFlowTheme.of(context).primaryText,
+                    ),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          title,
+                          maxLines: 1,
+                          textAlign: TextAlign.center,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    fontSize: FFAppState().fontSize,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Image.asset(
+                          imagePath,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   void dispose() {
     _model.dispose();
@@ -41,6 +106,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
+
+    final sizeOf = MediaQuery.of(context).size;
 
     return GestureDetector(
       onTap: () {
@@ -160,89 +227,68 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           body: SafeArea(
             top: true,
             child: SingleChildScrollView(
-              primary: false,
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Align(
-                      alignment: AlignmentDirectional(0.0, -1.0),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 19.0, 0.0, 0.0),
-                        child: Container(
-                          width: 362.0,
-                          height: 80.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            borderRadius: BorderRadius.circular(10.0),
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).primaryText,
+              primary: true,
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: sizeOf.width * 0.03),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Opacity(
+                      opacity: FFAppState().contrast,
+                      child: Align(
+                        alignment: AlignmentDirectional(0.0, -1.0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 19.0, 0.0, 0.0),
+                          child: Container(
+                            height: 80.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(10.0),
+                              border: Border.all(
+                                color: FlutterFlowTheme.of(context).primaryText,
+                              ),
                             ),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    13.0, 0.0, 10.0, 0.0),
-                                child: Container(
-                                  width: 221.0,
-                                  decoration: BoxDecoration(),
-                                  child: Opacity(
-                                    opacity: FFAppState().contrast,
-                                    child: Text(
-                                      FFAppState().frase,
-                                      textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            font: GoogleFonts
-                                                .atkinsonHyperlegible(
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Expanded(
+                                  flex: 3,
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 12),
+                                    child: Opacity(
+                                      opacity: FFAppState().contrast,
+                                      child: Text(
+                                        FFAppState().frase.isEmpty
+                                            ? 'Selecione um pictograma para começar'
+                                            : FFAppState().frase,
+                                        textAlign: TextAlign.center,
+                                        maxLines: 3,
+                                        overflow: TextOverflow.clip,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              font: GoogleFonts
+                                                  .atkinsonHyperlegible(),
+                                              fontSize: 14.0,
                                             ),
-                                            fontSize: FFAppState().fontSize,
-                                            letterSpacing: 0.0,
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                      overflow: TextOverflow.clip,
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              Flexible(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
+                                Flexible(
+                                  flex: 2,
                                   child: FFButtonWidget(
                                     onPressed: () {
-                                      print('Button pressed ...');
+                                      FFAppState().update(() {
+                                        FFAppState().frase = '';
+                                      });
                                     },
                                     text: 'Apagar',
                                     options: FFButtonOptions(
-                                      width: 108.0,
-                                      height: 56.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          23.0, 0.0, 23.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
+                                      height: 56,
                                       color: FlutterFlowTheme.of(context).error,
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
@@ -266,423 +312,121 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                     .titleSmall
                                                     .fontStyle,
                                           ),
-                                      elevation: 4.0,
-                                      borderRadius: BorderRadius.circular(10.0),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 13.0, 0.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          await actions.speakText(
-                            FFAppState().frase,
-                          );
-                        },
-                        text: 'Ouvir frase',
-                        options: FFButtonOptions(
-                          width: 360.0,
-                          height: 56.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).success,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    font: GoogleFonts.baloo2(
-                                      fontWeight: FontWeight.normal,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontStyle,
-                                    ),
-                                    color: Colors.white,
-                                    fontSize: valueOrDefault<double>(
-                                      FFAppState().fontSize,
-                                      20.0,
-                                    ),
-                                    letterSpacing: 0.0,
+                    Opacity(
+                      opacity: FFAppState().contrast,
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 13.0, 0.0, 20.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            await actions.speakText(
+                              FFAppState().frase,
+                            );
+                          },
+                          text: 'Ouvir frase',
+                          options: FFButtonOptions(
+                            width: double.infinity,
+                            height: 56.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 16.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).success,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  font: GoogleFonts.baloo2(
                                     fontWeight: FontWeight.normal,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .fontStyle,
                                   ),
-                          elevation: 4.0,
-                          borderRadius: BorderRadius.circular(10.0),
+                                  color: Colors.white,
+                                  fontSize: valueOrDefault<double>(
+                                    FFAppState().fontSize,
+                                    20.0,
+                                  ),
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
+                                ),
+                            elevation: 4.0,
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(14.0, 0.0, 14.0, 0.0),
-                      child: ListView(
-                        padding: EdgeInsets.fromLTRB(
-                          0,
-                          16.0,
-                          0,
-                          120.0,
+                    Opacity(
+                      opacity: FFAppState().contrast,
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(14.0,
+                            sizeOf.height * 0.1, 14.0, sizeOf.height * 0.1),
+                        child: Column(
+                          children: [
+                            Wrap(
+                              spacing: 20,
+                              runSpacing: 20,
+                              alignment: WrapAlignment.center,
+                              children: [
+                                categoryCard(
+                                  context: context,
+                                  title: 'Emoções',
+                                  imagePath: 'assets/images/emocoes.png',
+                                  onTap: () => context
+                                      .pushNamed(EmotionsPageWidget.routeName),
+                                ),
+                                categoryCard(
+                                  context: context,
+                                  title: 'Desejos',
+                                  imagePath: 'assets/images/quero.png',
+                                  onTap: () => context
+                                      .pushNamed(WishesPageWidget.routeName),
+                                ),
+                              ],
+                            ),
+                            Wrap(
+                              spacing: 20,
+                              runSpacing: 20,
+                              alignment: WrapAlignment.center,
+                              children: [
+                                categoryCard(
+                                  context: context,
+                                  title: 'Relações',
+                                  imagePath: 'assets/images/pessoas.png',
+                                  onTap: () => context
+                                      .pushNamed(EmotionsPageWidget.routeName),
+                                ),
+                                categoryCard(
+                                  context: context,
+                                  title: 'Comunicação',
+                                  imagePath: 'assets/images/comunicacao.png',
+                                  onTap: () => context
+                                      .pushNamed(WishesPageWidget.routeName),
+                                ),
+                              ],
+                            ),
+                          ].divide(
+                            SizedBox(
+                              height: 25,
+                            ),
+                          ),
                         ),
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        children: [
-                          Wrap(
-                            spacing: 29.0,
-                            runSpacing: 0.0,
-                            alignment: WrapAlignment.center,
-                            crossAxisAlignment: WrapCrossAlignment.start,
-                            direction: Axis.horizontal,
-                            runAlignment: WrapAlignment.start,
-                            verticalDirection: VerticalDirection.down,
-                            clipBehavior: Clip.none,
-                            children: [
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed(
-                                    EmotionsPageWidget.routeName,
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType:
-                                            PageTransitionType.rightToLeft,
-                                        duration: Duration(milliseconds: 1000),
-                                      ),
-                                    },
-                                  );
-                                },
-                                child: Material(
-                                  color: Colors.transparent,
-                                  elevation: 4.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Emoções',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  fontSize:
-                                                      valueOrDefault<double>(
-                                                    FFAppState().fontSize,
-                                                    24.0,
-                                                  ),
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/emocoes.png',
-                                            width: 200.0,
-                                            height: 200.0,
-                                            fit: BoxFit.contain,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed(
-                                    WishesPageWidget.routeName,
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType:
-                                            PageTransitionType.rightToLeft,
-                                        duration: Duration(milliseconds: 1000),
-                                      ),
-                                    },
-                                  );
-                                },
-                                child: Material(
-                                  color: Colors.transparent,
-                                  elevation: 4.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Desejos',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  fontSize:
-                                                      valueOrDefault<double>(
-                                                    FFAppState().fontSize,
-                                                    24.0,
-                                                  ),
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/quero.png',
-                                            width: 200.0,
-                                            height: 200.0,
-                                            fit: BoxFit.contain,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Wrap(
-                            spacing: 29.0,
-                            runSpacing: 0.0,
-                            alignment: WrapAlignment.center,
-                            crossAxisAlignment: WrapCrossAlignment.start,
-                            direction: Axis.horizontal,
-                            runAlignment: WrapAlignment.start,
-                            verticalDirection: VerticalDirection.down,
-                            clipBehavior: Clip.none,
-                            children: [
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed(
-                                    RelationsPageWidget.routeName,
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType:
-                                            PageTransitionType.rightToLeft,
-                                        duration: Duration(milliseconds: 1000),
-                                      ),
-                                    },
-                                  );
-                                },
-                                child: Material(
-                                  color: Colors.transparent,
-                                  elevation: 4.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Relações',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  fontSize:
-                                                      valueOrDefault<double>(
-                                                    FFAppState().fontSize,
-                                                    24.0,
-                                                  ),
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/pessoas.png',
-                                            width: 200.0,
-                                            height: 200.0,
-                                            fit: BoxFit.contain,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed(
-                                    CommunicationPageWidget.routeName,
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType:
-                                            PageTransitionType.rightToLeft,
-                                        duration: Duration(milliseconds: 1000),
-                                      ),
-                                    },
-                                  );
-                                },
-                                child: Material(
-                                  color: Colors.transparent,
-                                  elevation: 4.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Comunicação',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  fontSize:
-                                                      valueOrDefault<double>(
-                                                    FFAppState().fontSize,
-                                                    24.0,
-                                                  ),
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/comunicacao.png',
-                                            width: 200.0,
-                                            height: 200.0,
-                                            fit: BoxFit.contain,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ].divide(SizedBox(height: 25.0)),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
