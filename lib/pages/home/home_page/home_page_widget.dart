@@ -124,87 +124,90 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100.0),
-        child: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
-          title: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Opacity(
-                opacity: FFAppState().contrast,
-                child: Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(21.0, 35.0, 0.0, 19.0),
-                  child: Text(
-                    'TinoTEA',
-                    style: FlutterFlowTheme.of(context).headlineMedium.override(
-                          fontFamily: 'Nunito Sans',
-                          color: Colors.white,
-                          fontSize: 40.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.bold,
-                        ),
+            preferredSize: Size.fromHeight(100.0),
+            child: AppBar(
+              backgroundColor: FlutterFlowTheme.of(context).primary,
+              automaticallyImplyLeading: false,
+              title: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Opacity(
+                    opacity: FFAppState().contrast,
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(21.0, 35.0, 0.0, 19.0),
+                      child: Text(
+                        'TinoTEA',
+                        style: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .override(
+                              fontFamily: 'Nunito Sans',
+                              color: Colors.white,
+                              fontSize: 40.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(70.0, 0.0, 13.0, 0.0),
-                child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      context.pushNamed(
-                        LockSupervisionPageWidget.routeName,
-                        extra: <String, dynamic>{
-                          kTransitionInfoKey: TransitionInfo(
-                            hasTransition: true,
-                            transitionType: PageTransitionType.rightToLeft,
-                            duration: Duration(milliseconds: 1000),
-                          ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(70.0, 0.0, 13.0, 0.0),
+                    child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(
+                            LockSupervisionPageWidget.routeName,
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.rightToLeft,
+                                duration: Duration(milliseconds: 1000),
+                              ),
+                            },
+                          );
                         },
-                      );
-                    },
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Opacity(
-                          opacity: FFAppState().contrast,
-                          child: FlutterFlowIconButton(
-                            borderRadius: 0,
-                            buttonSize: 60,
-                            icon: Icon(
-                              Icons.person_outlined,
-                              size: valueOrDefault<double>(
-                                FFAppState().iconSize,
-                                50.0,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Opacity(
+                              opacity: FFAppState().contrast,
+                              child: FlutterFlowIconButton(
+                                borderRadius: 0,
+                                buttonSize: 60,
+                                icon: Icon(
+                                  Icons.person_outlined,
+                                  size: valueOrDefault<double>(
+                                    FFAppState().iconSize,
+                                    50.0,
+                                  ),
+                                ),
+                                onPressed: () {},
                               ),
                             ),
-                            onPressed: () {},
-                          ),
-                        ),
-                        Opacity(
-                          opacity: FFAppState().contrast,
-                          child: Text(
-                            'Supervisão',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
-                          ),
-                        ),
-                      ],
-                    )),
+                            Opacity(
+                              opacity: FFAppState().contrast,
+                              child: Text(
+                                'Supervisão',
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                            ),
+                          ],
+                        )),
+                  ),
+                ],
               ),
-            ],
+              actions: [],
+              centerTitle: false,
+              toolbarHeight: 100.0,
+              elevation: 2.0,
+            ),
           ),
-          actions: [],
-          centerTitle: false,
-          toolbarHeight: 100.0,
-          elevation: 2.0,
-        ),
-      ),
-      body: SafeArea(
+          body: SafeArea(
             top: true,
             child: SingleChildScrollView(
               primary: true,
@@ -356,13 +359,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     Opacity(
                       opacity: FFAppState().contrast,
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(14.0,
-                            sizeOf.height * 0.1, 14.0, sizeOf.height * 0.1),
+                        padding: EdgeInsets.only(
+                            top: sizeOf.height * 0.05,
+                            bottom: sizeOf.height * 0.14),
                         child: Column(
                           children: [
                             Wrap(
-                              spacing: 20,
-                              runSpacing: 20,
+                              spacing: sizeOf.width * 0.05,
                               alignment: WrapAlignment.center,
                               children: [
                                 categoryCard(
@@ -381,9 +384,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 ),
                               ],
                             ),
+                            SizedBox(
+                              height: sizeOf.height * 0.03,
+                            ),
                             Wrap(
-                              spacing: 20,
-                              runSpacing: 20,
+                              spacing: sizeOf.width * 0.05,
                               alignment: WrapAlignment.center,
                               children: [
                                 categoryCard(
@@ -391,22 +396,18 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   title: 'Relações',
                                   imagePath: 'assets/images/pessoas.png',
                                   onTap: () => context
-                                      .pushNamed(EmotionsPageWidget.routeName),
+                                      .pushNamed(RelationsPageWidget.routeName),
                                 ),
                                 categoryCard(
                                   context: context,
                                   title: 'Comunicação',
                                   imagePath: 'assets/images/comunicacao.png',
                                   onTap: () => context
-                                      .pushNamed(WishesPageWidget.routeName),
+                                      .pushNamed(CommunicationPageWidget.routeName),
                                 ),
                               ],
                             ),
-                          ].divide(
-                            SizedBox(
-                              height: 25,
-                            ),
-                          ),
+                          ],
                         ),
                       ),
                     ),

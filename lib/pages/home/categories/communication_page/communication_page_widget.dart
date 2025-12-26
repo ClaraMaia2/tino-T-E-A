@@ -1,3 +1,5 @@
+import 'package:tino_t_e_a/widgets/category_home_card.dart';
+
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -152,174 +154,178 @@ class _CommunicationPageWidgetState extends State<CommunicationPageWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Opacity(
-                        opacity: FFAppState().contrast,
-                        child: Align(
-                          alignment: AlignmentDirectional(0.0, -1.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 19.0, 0.0, 0.0),
-                            child: Container(
-                              height: 80.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                borderRadius: BorderRadius.circular(10.0),
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).primaryText,
-                                ),
+                      opacity: FFAppState().contrast,
+                      child: Align(
+                        alignment: AlignmentDirectional(0.0, -1.0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 19.0, 0.0, 0.0),
+                          child: Container(
+                            height: 80.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(10.0),
+                              border: Border.all(
+                                color: FlutterFlowTheme.of(context).primaryText,
                               ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Expanded(
-                                    flex: 3,
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 12),
-                                      child: Opacity(
-                                        opacity: FFAppState().contrast,
-                                        child: Text(
-                                          FFAppState().frase.isEmpty
-                                              ? 'Selecione um pictograma para começar'
-                                              : FFAppState().frase,
-                                          textAlign: TextAlign.center,
-                                          maxLines: 3,
-                                          overflow: TextOverflow.clip,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts
-                                                    .atkinsonHyperlegible(),
-                                                fontSize: 14.0,
-                                              ),
-                                        ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  flex: 3,
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 12),
+                                    child: Opacity(
+                                      opacity: FFAppState().contrast,
+                                      child: Text(
+                                        FFAppState().frase.isEmpty
+                                            ? 'Selecione um pictograma para começar'
+                                            : FFAppState().frase,
+                                        textAlign: TextAlign.center,
+                                        maxLines: 3,
+                                        overflow: TextOverflow.clip,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              font: GoogleFonts
+                                                  .atkinsonHyperlegible(),
+                                              fontSize: 14.0,
+                                            ),
                                       ),
                                     ),
                                   ),
-                                  Flexible(
-                                    flex: 2,
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(right: 20),
-                                      child: FFButtonWidget(
-                                        onPressed: () {
-                                          FFAppState().update(() {
-                                            FFAppState().frase = '';
-                                          });
-                                        },
-                                        text: 'Apagar',
-                                        options: FFButtonOptions(
-                                          height: 56,
-                                          color:
-                                              FlutterFlowTheme.of(context).error,
-                                          textStyle: FlutterFlowTheme.of(context)
-                                              .titleSmall
-                                              .override(
-                                                font: GoogleFonts.baloo2(
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                                color: Colors.white,
-                                                fontSize: valueOrDefault<double>(
-                                                  FFAppState().fontSize,
-                                                  20.0,
-                                                ),
-                                                letterSpacing: 0.0,
+                                ),
+                                Flexible(
+                                  flex: 2,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 20),
+                                    child: FFButtonWidget(
+                                      onPressed: () {
+                                        FFAppState().update(() {
+                                          FFAppState().frase = '';
+                                        });
+                                      },
+                                      text: 'Apagar',
+                                      options: FFButtonOptions(
+                                        height: 56,
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              font: GoogleFonts.baloo2(
                                                 fontWeight: FontWeight.normal,
                                                 fontStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
                                                         .fontStyle,
                                               ),
-                                          borderRadius: BorderRadius.circular(10),
-                                        ),
+                                              color: Colors.white,
+                                              fontSize: valueOrDefault<double>(
+                                                FFAppState().fontSize,
+                                                20.0,
+                                              ),
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.normal,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontStyle,
+                                            ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
                       ),
-                      Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 13.0, 0.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
-                        },
-                        text: 'Ouvir frase',
-                        options: FFButtonOptions(
-                          width: 360.0,
-                          height: 56.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
-                          iconPadding:
-                              EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).success,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    font: GoogleFonts.baloo2(
+                    ),
+                    Opacity(
+                      opacity: FFAppState().contrast,
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 13.0, 0.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            await actions.speakText(
+                              FFAppState().frase,
+                            );
+                          },
+                          text: 'Ouvir frase',
+                          options: FFButtonOptions(
+                            width: double.infinity,
+                            height: 56.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 16.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).success,
+                            textStyle:
+                                FlutterFlowTheme.of(context).titleSmall.override(
+                                      font: GoogleFonts.baloo2(
+                                        fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
+                                      color: Colors.white,
+                                      fontSize: valueOrDefault<double>(
+                                        FFAppState().fontSize,
+                                        20.0,
+                                      ),
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                       fontStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .fontStyle,
                                     ),
-                                    color: Colors.white,
-                                    fontSize: valueOrDefault<double>(
-                                      FFAppState().fontSize,
-                                      20.0,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .fontStyle,
-                                  ),
-                          elevation: 4.0,
-                          borderRadius: BorderRadius.circular(10.0),
+                            elevation: 4.0,
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          FlutterFlowIconButton(
-                            borderRadius: 8.0,
-                            buttonSize: 60.0,
-                            icon: Icon(
-                              Icons.arrow_back,
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              size: valueOrDefault<double>(
-                                FFAppState().iconSize,
-                                56.0,
+                    Opacity(
+                      opacity: FFAppState().contrast,
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            FlutterFlowIconButton(
+                              borderRadius: 8.0,
+                              buttonSize: 60.0,
+                              icon: Icon(
+                                Icons.arrow_back,
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                size: valueOrDefault<double>(
+                                  FFAppState().iconSize,
+                                  56.0,
+                                ),
                               ),
+                              onPressed: () async {
+                                context.pushNamed(
+                                  HomePageWidget.routeName,
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType:
+                                          PageTransitionType.leftToRight,
+                                      duration: Duration(milliseconds: 1000),
+                                    ),
+                                  },
+                                );
+                              },
                             ),
-                            onPressed: () async {
-                              context.pushNamed(
-                                HomePageWidget.routeName,
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType:
-                                        PageTransitionType.leftToRight,
-                                    duration: Duration(milliseconds: 1000),
-                                  ),
-                                },
-                              );
-                            },
-                          ),
-                          Opacity(
-                            opacity: FFAppState().contrast,
-                            child: Padding(
+                            Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 0.0, 0.0),
                               child: Text(
@@ -350,8 +356,8 @@ class _CommunicationPageWidgetState extends State<CommunicationPageWidget> {
                                     ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     Opacity(
@@ -380,1106 +386,184 @@ class _CommunicationPageWidgetState extends State<CommunicationPageWidget> {
                     Opacity(
                       opacity: FFAppState().contrast,
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(14.0, 0.0, 14.0, 0.0),
-                        child: ListView(
-                          padding: EdgeInsets.fromLTRB(
-                            0,
-                            16.0,
-                            0,
-                            16.0,
-                          ),
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
+                        padding: EdgeInsets.symmetric(
+                            vertical: sizeOf.height * 0.05),
+                        child: Column(
                           children: [
                             Wrap(
-                              spacing: 29.0,
-                              runSpacing: 0.0,
+                              spacing: sizeOf.width * 0.05,
                               alignment: WrapAlignment.center,
-                              crossAxisAlignment: WrapCrossAlignment.start,
+                              crossAxisAlignment: WrapCrossAlignment.center,
                               direction: Axis.horizontal,
-                              runAlignment: WrapAlignment.start,
-                              verticalDirection: VerticalDirection.down,
-                              clipBehavior: Clip.none,
                               children: [
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Sim',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color:
-                                                      FlutterFlowTheme.of(context)
-                                                          .secondaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/sim.png',
-                                            width: 153.0,
-                                            height: 153.0,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            FFAppState().frase =
-                                                '${FFAppState().frase} Sim';
-                                            safeSetState(() {});
-                                            await actions.speakText(
-                                              'sim',
-                                            );
-                                          },
-                                          text: 'Escolher',
-                                          options: FFButtonOptions(
-                                            width: 131.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.baloo2(
-                                                    fontWeight: FontWeight.normal,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Colors.white,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 4.0,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                CategoryHomeCard(
+                                  title: 'Sim',
+                                  imagePath: 'assets/images/sim.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Sim';
+                                    safeSetState(() {});
+                                    await actions.speakText('sim');
+                                  },
                                 ),
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Não',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color:
-                                                      FlutterFlowTheme.of(context)
-                                                          .secondaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/no.png',
-                                            width: 153.0,
-                                            height: 153.0,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            FFAppState().frase =
-                                                '${FFAppState().frase} Por favor';
-                                            safeSetState(() {});
-                                            await actions.speakText(
-                                              'não',
-                                            );
-                                          },
-                                          text: 'Escolher',
-                                          options: FFButtonOptions(
-                                            width: 131.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.baloo2(
-                                                    fontWeight: FontWeight.normal,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Colors.white,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 4.0,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                CategoryHomeCard(
+                                  title: 'Não',
+                                  imagePath: 'assets/images/no.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Não';
+                                    safeSetState(() {});
+                                    await actions.speakText('não');
+                                  },
                                 ),
                               ],
                             ),
                             Wrap(
-                              spacing: 29.0,
-                              runSpacing: 0.0,
+                              spacing: sizeOf.width * 0.05,
                               alignment: WrapAlignment.center,
-                              crossAxisAlignment: WrapCrossAlignment.start,
+                              crossAxisAlignment: WrapCrossAlignment.center,
                               direction: Axis.horizontal,
-                              runAlignment: WrapAlignment.start,
-                              verticalDirection: VerticalDirection.down,
-                              clipBehavior: Clip.none,
                               children: [
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Por favor',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color:
-                                                      FlutterFlowTheme.of(context)
-                                                          .secondaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/por_favor.png',
-                                            width: 153.0,
-                                            height: 153.0,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            FFAppState().frase =
-                                                '${FFAppState().frase} Por favor';
-                                            safeSetState(() {});
-                                            await actions.speakText(
-                                              'por favor',
-                                            );
-                                          },
-                                          text: 'Escolher',
-                                          options: FFButtonOptions(
-                                            width: 131.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.baloo2(
-                                                    fontWeight: FontWeight.normal,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Colors.white,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 4.0,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                CategoryHomeCard(
+                                  title: 'Por favor',
+                                  imagePath: 'assets/images/por_favor.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Por favor';
+                                    safeSetState(() {});
+                                    await actions.speakText('por favor');
+                                  },
                                 ),
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Obrigado(a)',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color:
-                                                      FlutterFlowTheme.of(context)
-                                                          .secondaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/obrigado.png',
-                                            width: 153.0,
-                                            height: 153.0,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            FFAppState().frase =
-                                                '${FFAppState().frase} Obrigado(a)';
-                                            safeSetState(() {});
-                                            await actions.speakText(
-                                              'obrigado(a)',
-                                            );
-                                          },
-                                          text: 'Escolher',
-                                          options: FFButtonOptions(
-                                            width: 131.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.baloo2(
-                                                    fontWeight: FontWeight.normal,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Colors.white,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 4.0,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                CategoryHomeCard(
+                                  title: 'Obrigado(a)',
+                                  imagePath: 'assets/images/obrigado.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Obrigado(a)';
+                                    safeSetState(() {});
+                                    await actions.speakText('obrigado(a)');
+                                  },
                                 ),
                               ],
                             ),
                             Wrap(
-                              spacing: 29.0,
-                              runSpacing: 0.0,
+                              spacing: sizeOf.width * 0.05,
                               alignment: WrapAlignment.center,
-                              crossAxisAlignment: WrapCrossAlignment.start,
+                              crossAxisAlignment: WrapCrossAlignment.center,
                               direction: Axis.horizontal,
-                              runAlignment: WrapAlignment.start,
-                              verticalDirection: VerticalDirection.down,
-                              clipBehavior: Clip.none,
                               children: [
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Preciso de ajuda',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color:
-                                                      FlutterFlowTheme.of(context)
-                                                          .secondaryBackground,
-                                                  fontSize: 18.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/preciso_de_ajuda.png',
-                                            width: 153.0,
-                                            height: 153.0,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 6.0, 0.0, 0.0),
-                                          child: FFButtonWidget(
-                                            onPressed: () async {
-                                              FFAppState().frase =
-                                                  '${FFAppState().frase} Preciso de ajuda';
-                                              safeSetState(() {});
-                                              await actions.speakText(
-                                                'preciso de ajuda',
-                                              );
-                                            },
-                                            text: 'Escolher',
-                                            options: FFButtonOptions(
-                                              width: 131.0,
-                                              height: 40.0,
-                                              padding:
-                                                  EdgeInsetsDirectional.fromSTEB(
-                                                      16.0, 0.0, 16.0, 0.0),
-                                              iconPadding:
-                                                  EdgeInsetsDirectional.fromSTEB(
-                                                      0.0, 0.0, 0.0, 0.0),
-                                              color: FlutterFlowTheme.of(context)
-                                                  .primary,
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        font: GoogleFonts.baloo2(
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .fontStyle,
-                                                        ),
-                                                        color: Colors.white,
-                                                        fontSize: 20.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .fontStyle,
-                                                      ),
-                                              elevation: 4.0,
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                CategoryHomeCard(
+                                  title: 'Preciso de ajuda',
+                                  imagePath:
+                                      'assets/images/preciso_de_ajuda.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Preciso de ajuda';
+                                    safeSetState(() {});
+                                    await actions.speakText('preciso de ajuda');
+                                  },
                                 ),
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Posso?',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color:
-                                                      FlutterFlowTheme.of(context)
-                                                          .secondaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/poder.png',
-                                            width: 153.0,
-                                            height: 153.0,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            FFAppState().frase =
-                                                '${FFAppState().frase} Posso?';
-                                            safeSetState(() {});
-                                            await actions.speakText(
-                                              'posso?',
-                                            );
-                                          },
-                                          text: 'Escolher',
-                                          options: FFButtonOptions(
-                                            width: 131.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.baloo2(
-                                                    fontWeight: FontWeight.normal,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Colors.white,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 4.0,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                CategoryHomeCard(
+                                  title: 'Posso?',
+                                  imagePath: 'assets/images/poder.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Posso?';
+                                    safeSetState(() {});
+                                    await actions.speakText('posso?');
+                                  },
                                 ),
                               ],
                             ),
                             Wrap(
-                              spacing: 29.0,
-                              runSpacing: 0.0,
+                              spacing: sizeOf.width * 0.05,
                               alignment: WrapAlignment.center,
-                              crossAxisAlignment: WrapCrossAlignment.start,
+                              crossAxisAlignment: WrapCrossAlignment.center,
                               direction: Axis.horizontal,
-                              runAlignment: WrapAlignment.start,
-                              verticalDirection: VerticalDirection.down,
-                              clipBehavior: Clip.none,
                               children: [
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Não entendo',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color:
-                                                      FlutterFlowTheme.of(context)
-                                                          .secondaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/no_entendo.png',
-                                            width: 153.0,
-                                            height: 153.0,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            FFAppState().frase =
-                                                '${FFAppState().frase} Não entendo';
-                                            safeSetState(() {});
-                                            await actions.speakText(
-                                              'não entendo',
-                                            );
-                                          },
-                                          text: 'Escolher',
-                                          options: FFButtonOptions(
-                                            width: 131.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.baloo2(
-                                                    fontWeight: FontWeight.normal,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Colors.white,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 4.0,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                CategoryHomeCard(
+                                  title: 'Não entendo',
+                                  imagePath: 'assets/images/no_entendo.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Não entendo';
+                                    safeSetState(() {});
+                                    await actions.speakText('não entendo');
+                                  },
                                 ),
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Como está?',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color:
-                                                      FlutterFlowTheme.of(context)
-                                                          .secondaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/como_est.png',
-                                            width: 153.0,
-                                            height: 153.0,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            FFAppState().frase =
-                                                '${FFAppState().frase} Como está?';
-                                            safeSetState(() {});
-                                            await actions.speakText(
-                                              'como está?',
-                                            );
-                                          },
-                                          text: 'Escolher',
-                                          options: FFButtonOptions(
-                                            width: 131.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.baloo2(
-                                                    fontWeight: FontWeight.normal,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Colors.white,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 4.0,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                CategoryHomeCard(
+                                  title: 'Como está?',
+                                  imagePath: 'assets/images/como_est.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Como está?';
+                                    safeSetState(() {});
+                                    await actions.speakText('como está?');
+                                  },
                                 ),
                               ],
                             ),
                             Wrap(
-                              spacing: 29.0,
-                              runSpacing: 0.0,
+                              spacing: sizeOf.width * 0.05,
                               alignment: WrapAlignment.center,
-                              crossAxisAlignment: WrapCrossAlignment.start,
+                              crossAxisAlignment: WrapCrossAlignment.center,
                               direction: Axis.horizontal,
-                              runAlignment: WrapAlignment.start,
-                              verticalDirection: VerticalDirection.down,
-                              clipBehavior: Clip.none,
                               children: [
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Desculpa',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color:
-                                                      FlutterFlowTheme.of(context)
-                                                          .secondaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/me_desculpa.png',
-                                            width: 153.0,
-                                            height: 153.0,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            FFAppState().frase =
-                                                '${FFAppState().frase} Desculpa';
-                                            safeSetState(() {});
-                                            await actions.speakText(
-                                              'desculpa',
-                                            );
-                                          },
-                                          text: 'Escolher',
-                                          options: FFButtonOptions(
-                                            width: 131.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.baloo2(
-                                                    fontWeight: FontWeight.normal,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Colors.white,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 4.0,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                CategoryHomeCard(
+                                  title: 'Olá',
+                                  imagePath: 'assets/images/cumprimentar.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Olá';
+                                    safeSetState(() {});
+                                    await actions.speakText('olá');
+                                  },
                                 ),
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Tchau',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color:
-                                                      FlutterFlowTheme.of(context)
-                                                          .secondaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/tchau.png',
-                                            width: 153.0,
-                                            height: 153.0,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            FFAppState().frase =
-                                                '${FFAppState().frase} Tchau';
-                                            safeSetState(() {});
-                                            await actions.speakText(
-                                              'tchau',
-                                            );
-                                          },
-                                          text: 'Escolher',
-                                          options: FFButtonOptions(
-                                            width: 131.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.baloo2(
-                                                    fontWeight: FontWeight.normal,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Colors.white,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 4.0,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                CategoryHomeCard(
+                                  title: 'Tchau',
+                                  imagePath: 'assets/images/tchau.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Tchau';
+                                    safeSetState(() {});
+                                    await actions.speakText('tchau');
+                                  },
                                 ),
                               ],
                             ),
-                          ].divide(SizedBox(height: 25.0)),
+                            Wrap(
+                              spacing: sizeOf.width * 0.05,
+                              alignment: WrapAlignment.center,
+                              crossAxisAlignment: WrapCrossAlignment.center,
+                              direction: Axis.horizontal,
+                              children: [
+                                CategoryHomeCard(
+                                  title: 'Desculpa',
+                                  imagePath: 'assets/images/me_desculpa.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Desculpa';
+                                    safeSetState(() {});
+                                    await actions.speakText('desculpa');
+                                  },
+                                ),
+                                CategoryHomeCard(
+                                  title: 'Parar',
+                                  imagePath: 'assets/images/parar.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Parar';
+                                    safeSetState(() {});
+                                    await actions.speakText('parar');
+                                  },
+                                ),
+                              ],
+                            ),
+                          ].divide(
+                            SizedBox(
+                              height: sizeOf.height * 0.03,
+                            ),
+                          ),
                         ),
                       ),
                     ),

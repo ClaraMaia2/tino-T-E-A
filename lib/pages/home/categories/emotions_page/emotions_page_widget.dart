@@ -1,3 +1,5 @@
+import 'package:tino_t_e_a/widgets/category_home_card.dart';
+
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -55,298 +57,308 @@ class _EmotionsPageWidgetState extends State<EmotionsPageWidget> {
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100.0),
-        child: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
-          title: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Opacity(
-                opacity: FFAppState().contrast,
-                child: Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(21.0, 35.0, 0.0, 19.0),
-                  child: Text(
-                    'TinoTEA',
-                    style: FlutterFlowTheme.of(context).headlineMedium.override(
-                          fontFamily: 'Nunito Sans',
-                          color: Colors.white,
-                          fontSize: 40.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.bold,
-                        ),
+            preferredSize: Size.fromHeight(100.0),
+            child: AppBar(
+              backgroundColor: FlutterFlowTheme.of(context).primary,
+              automaticallyImplyLeading: false,
+              title: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Opacity(
+                    opacity: FFAppState().contrast,
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(21.0, 35.0, 0.0, 19.0),
+                      child: Text(
+                        'TinoTEA',
+                        style: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .override(
+                              fontFamily: 'Nunito Sans',
+                              color: Colors.white,
+                              fontSize: 40.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(70.0, 0.0, 13.0, 0.0),
-                child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      context.pushNamed(
-                        LockSupervisionPageWidget.routeName,
-                        extra: <String, dynamic>{
-                          kTransitionInfoKey: TransitionInfo(
-                            hasTransition: true,
-                            transitionType: PageTransitionType.rightToLeft,
-                            duration: Duration(milliseconds: 1000),
-                          ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(70.0, 0.0, 13.0, 0.0),
+                    child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(
+                            LockSupervisionPageWidget.routeName,
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.rightToLeft,
+                                duration: Duration(milliseconds: 1000),
+                              ),
+                            },
+                          );
                         },
-                      );
-                    },
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Opacity(
-                          opacity: FFAppState().contrast,
-                          child: FlutterFlowIconButton(
-                            borderRadius: 0,
-                            buttonSize: 60,
-                            icon: Icon(
-                              Icons.person_outlined,
-                              size: valueOrDefault<double>(
-                                FFAppState().iconSize,
-                                50.0,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Opacity(
+                              opacity: FFAppState().contrast,
+                              child: FlutterFlowIconButton(
+                                borderRadius: 0,
+                                buttonSize: 60,
+                                icon: Icon(
+                                  Icons.person_outlined,
+                                  size: valueOrDefault<double>(
+                                    FFAppState().iconSize,
+                                    50.0,
+                                  ),
+                                ),
+                                onPressed: () {},
                               ),
                             ),
-                            onPressed: () {},
-                          ),
-                        ),
-                        Opacity(
-                          opacity: FFAppState().contrast,
-                          child: Text(
-                            'Supervisão',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
-                          ),
-                        ),
-                      ],
-                    )),
+                            Opacity(
+                              opacity: FFAppState().contrast,
+                              child: Text(
+                                'Supervisão',
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                            ),
+                          ],
+                        )),
+                  ),
+                ],
               ),
-            ],
+              actions: [],
+              centerTitle: false,
+              toolbarHeight: 100.0,
+              elevation: 2.0,
+            ),
           ),
-          actions: [],
-          centerTitle: false,
-          toolbarHeight: 100.0,
-          elevation: 2.0,
-        ),
-      ),
-      body: SafeArea(
+          body: SafeArea(
             top: true,
             child: SingleChildScrollView(
-              primary: false,
+              primary: true,
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: sizeOf.width * 0.03),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Opacity(
-                        opacity: FFAppState().contrast,
-                        child: Align(
-                          alignment: AlignmentDirectional(0.0, -1.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 19.0, 0.0, 0.0),
-                            child: Container(
-                              height: 80.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                borderRadius: BorderRadius.circular(10.0),
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).primaryText,
-                                ),
+                      opacity: FFAppState().contrast,
+                      child: Align(
+                        alignment: AlignmentDirectional(0.0, -1.0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 19.0, 0.0, 0.0),
+                          child: Container(
+                            height: 80.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(10.0),
+                              border: Border.all(
+                                color: FlutterFlowTheme.of(context).primaryText,
                               ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Expanded(
-                                    flex: 3,
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 12),
-                                      child: Opacity(
-                                        opacity: FFAppState().contrast,
-                                        child: Text(
-                                          FFAppState().frase.isEmpty
-                                              ? 'Selecione um pictograma para começar'
-                                              : FFAppState().frase,
-                                          textAlign: TextAlign.center,
-                                          maxLines: 3,
-                                          overflow: TextOverflow.clip,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts
-                                                    .atkinsonHyperlegible(),
-                                                fontSize: 14.0,
-                                              ),
-                                        ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  flex: 3,
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 12),
+                                    child: Opacity(
+                                      opacity: FFAppState().contrast,
+                                      child: Text(
+                                        FFAppState().frase.isEmpty
+                                            ? 'Selecione um pictograma para começar'
+                                            : FFAppState().frase,
+                                        textAlign: TextAlign.center,
+                                        maxLines: 3,
+                                        overflow: TextOverflow.clip,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              font: GoogleFonts
+                                                  .atkinsonHyperlegible(),
+                                              fontSize: 14.0,
+                                            ),
                                       ),
                                     ),
                                   ),
-                                  Flexible(
-                                    flex: 2,
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(right: 20),
-                                      child: FFButtonWidget(
-                                        onPressed: () {
-                                          FFAppState().update(() {
-                                            FFAppState().frase = '';
-                                          });
-                                        },
-                                        text: 'Apagar',
-                                        options: FFButtonOptions(
-                                          height: 56,
-                                          color:
-                                              FlutterFlowTheme.of(context).error,
-                                          textStyle: FlutterFlowTheme.of(context)
-                                              .titleSmall
-                                              .override(
-                                                font: GoogleFonts.baloo2(
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                                color: Colors.white,
-                                                fontSize: valueOrDefault<double>(
-                                                  FFAppState().fontSize,
-                                                  20.0,
-                                                ),
-                                                letterSpacing: 0.0,
+                                ),
+                                Flexible(
+                                  flex: 2,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 20),
+                                    child: FFButtonWidget(
+                                      onPressed: () {
+                                        FFAppState().update(() {
+                                          FFAppState().frase = '';
+                                        });
+                                      },
+                                      text: 'Apagar',
+                                      options: FFButtonOptions(
+                                        height: 56,
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              font: GoogleFonts.baloo2(
                                                 fontWeight: FontWeight.normal,
                                                 fontStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
                                                         .fontStyle,
                                               ),
-                                          borderRadius: BorderRadius.circular(10),
-                                        ),
+                                              color: Colors.white,
+                                              fontSize: valueOrDefault<double>(
+                                                FFAppState().fontSize,
+                                                20.0,
+                                              ),
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.normal,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontStyle,
+                                            ),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
                       ),
-                      Opacity(
+                    ),
+                    Opacity(
                       opacity: FFAppState().contrast,
                       child: Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 13.0, 0.0, 0.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            await actions.speakText(
+                              FFAppState().frase,
+                            );
                           },
                           text: 'Ouvir frase',
                           options: FFButtonOptions(
-                            width: 360.0,
+                            width: double.infinity,
                             height: 56.0,
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).success,
-                            textStyle:
-                                FlutterFlowTheme.of(context).titleSmall.override(
-                                      font: GoogleFonts.baloo2(
-                                        fontWeight: FontWeight.normal,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontStyle,
-                                      ),
-                                      color: Colors.white,
-                                      fontSize: valueOrDefault<double>(
-                                        FFAppState().fontSize,
-                                        20.0,
-                                      ),
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.normal,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontStyle,
-                                    ),
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  font: GoogleFonts.baloo2(
+                                    fontWeight: FontWeight.normal,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                                  color: Colors.white,
+                                  fontSize: valueOrDefault<double>(
+                                    FFAppState().fontSize,
+                                    20.0,
+                                  ),
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
+                                ),
                             elevation: 4.0,
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Opacity(
-                            opacity: FFAppState().contrast,
-                            child: FlutterFlowIconButton(
-                              borderRadius: 8.0,
-                              buttonSize: 60.0,
-                              icon: Icon(
-                                Icons.arrow_back,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: valueOrDefault<double>(
-                                  FFAppState().iconSize,
-                                  56.0,
+                    Opacity(
+                      opacity: FFAppState().contrast,
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Opacity(
+                              opacity: FFAppState().contrast,
+                              child: FlutterFlowIconButton(
+                                borderRadius: 8.0,
+                                buttonSize: 60.0,
+                                icon: Icon(
+                                  Icons.arrow_back,
+                                  color: FlutterFlowTheme.of(context).primaryText,
+                                  size: valueOrDefault<double>(
+                                    FFAppState().iconSize,
+                                    56.0,
+                                  ),
                                 ),
+                                onPressed: () async {
+                                  context.pushNamed(
+                                    HomePageWidget.routeName,
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType:
+                                            PageTransitionType.leftToRight,
+                                        duration: Duration(milliseconds: 1000),
+                                      ),
+                                    },
+                                  );
+                                },
                               ),
-                              onPressed: () async {
-                                context.pushNamed(
-                                  HomePageWidget.routeName,
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType:
-                                          PageTransitionType.leftToRight,
-                                      duration: Duration(milliseconds: 1000),
-                                    ),
-                                  },
-                                );
-                              },
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              'Voltar',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    font: GoogleFonts.baloo2(
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                'Voltar',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.baloo2(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      fontSize: valueOrDefault<double>(
+                                        FFAppState().fontSize,
+                                        20.0,
+                                      ),
+                                      letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .fontWeight,
                                       fontStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .fontStyle,
+                                      decoration: TextDecoration.underline,
                                     ),
-                                    fontSize: valueOrDefault<double>(
-                                      FFAppState().fontSize,
-                                      20.0,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                    decoration: TextDecoration.underline,
-                                  ),
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     Opacity(
@@ -375,1099 +387,155 @@ class _EmotionsPageWidgetState extends State<EmotionsPageWidget> {
                     Opacity(
                       opacity: FFAppState().contrast,
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(14.0, 0.0, 14.0, 0.0),
-                        child: ListView(
-                          padding: EdgeInsets.fromLTRB(
-                            0,
-                            16.0,
-                            0,
-                            16.0,
-                          ),
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
+                        padding: EdgeInsets.symmetric(
+                            vertical: sizeOf.height * 0.05),
+                        child: Column(
                           children: [
                             Wrap(
-                              spacing: 29.0,
-                              runSpacing: 0.0,
+                              spacing: sizeOf.width * 0.05,
                               alignment: WrapAlignment.center,
-                              crossAxisAlignment: WrapCrossAlignment.start,
+                              crossAxisAlignment: WrapCrossAlignment.center,
                               direction: Axis.horizontal,
-                              runAlignment: WrapAlignment.start,
-                              verticalDirection: VerticalDirection.down,
-                              clipBehavior: Clip.none,
                               children: [
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Feliz',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color:
-                                                      FlutterFlowTheme.of(context)
-                                                          .secondaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/feliz.png',
-                                            width: 153.0,
-                                            height: 153.0,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            FFAppState().frase =
-                                                '${FFAppState().frase} Feliz';
-                                            safeSetState(() {});
-                                            await actions.speakText(
-                                              'feliz',
-                                            );
-                                          },
-                                          text: 'Escolher',
-                                          options: FFButtonOptions(
-                                            width: 131.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.baloo2(
-                                                    fontWeight: FontWeight.normal,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Colors.white,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 4.0,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                CategoryHomeCard(
+                                  title: 'Feliz',
+                                  imagePath: 'assets/images/feliz.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Feliz';
+                                    safeSetState(() {});
+                                    await actions.speakText('feliz');
+                                  },
                                 ),
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Triste',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color:
-                                                      FlutterFlowTheme.of(context)
-                                                          .secondaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/triste.png',
-                                            width: 153.0,
-                                            height: 153.0,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            FFAppState().frase =
-                                                '${FFAppState().frase} Triste';
-                                            safeSetState(() {});
-                                            await actions.speakText(
-                                              'triste',
-                                            );
-                                          },
-                                          text: 'Escolher',
-                                          options: FFButtonOptions(
-                                            width: 131.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.baloo2(
-                                                    fontWeight: FontWeight.normal,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Colors.white,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 4.0,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                CategoryHomeCard(
+                                  title: 'Triste',
+                                  imagePath: 'assets/images/triste.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Triste';
+                                    safeSetState(() {});
+                                    await actions.speakText('triste');
+                                  },
                                 ),
                               ],
                             ),
                             Wrap(
-                              spacing: 29.0,
-                              runSpacing: 0.0,
+                              spacing: sizeOf.width * 0.05,
                               alignment: WrapAlignment.center,
-                              crossAxisAlignment: WrapCrossAlignment.start,
+                              crossAxisAlignment: WrapCrossAlignment.center,
                               direction: Axis.horizontal,
-                              runAlignment: WrapAlignment.start,
-                              verticalDirection: VerticalDirection.down,
-                              clipBehavior: Clip.none,
                               children: [
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Nojo',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color:
-                                                      FlutterFlowTheme.of(context)
-                                                          .secondaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/nojo.png',
-                                            width: 153.0,
-                                            height: 153.0,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            FFAppState().frase =
-                                                '${FFAppState().frase} Nojo';
-                                            safeSetState(() {});
-                                            await actions.speakText(
-                                              'nojo',
-                                            );
-                                          },
-                                          text: 'Escolher',
-                                          options: FFButtonOptions(
-                                            width: 131.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.baloo2(
-                                                    fontWeight: FontWeight.normal,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Colors.white,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 4.0,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                CategoryHomeCard(
+                                  title: 'Nojo',
+                                  imagePath: 'assets/images/nojo.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Nojo';
+                                    safeSetState(() {});
+                                    await actions.speakText('nojo');
+                                  },
                                 ),
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Medo',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color:
-                                                      FlutterFlowTheme.of(context)
-                                                          .secondaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/medo.png',
-                                            width: 153.0,
-                                            height: 153.0,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            FFAppState().frase =
-                                                '${FFAppState().frase} Medo';
-                                            safeSetState(() {});
-                                            await actions.speakText(
-                                              'medo',
-                                            );
-                                          },
-                                          text: 'Escolher',
-                                          options: FFButtonOptions(
-                                            width: 131.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.baloo2(
-                                                    fontWeight: FontWeight.normal,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Colors.white,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 4.0,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                CategoryHomeCard(
+                                  title: 'Medo',
+                                  imagePath: 'assets/images/medo.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Medo';
+                                    safeSetState(() {});
+                                    await actions.speakText('medo');
+                                  },
                                 ),
                               ],
                             ),
                             Wrap(
-                              spacing: 29.0,
-                              runSpacing: 0.0,
+                              spacing: sizeOf.width * 0.05,
                               alignment: WrapAlignment.center,
-                              crossAxisAlignment: WrapCrossAlignment.start,
+                              crossAxisAlignment: WrapCrossAlignment.center,
                               direction: Axis.horizontal,
-                              runAlignment: WrapAlignment.start,
-                              verticalDirection: VerticalDirection.down,
-                              clipBehavior: Clip.none,
                               children: [
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Raiva',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color:
-                                                      FlutterFlowTheme.of(context)
-                                                          .secondaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/bravo.png',
-                                            width: 153.0,
-                                            height: 153.0,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            FFAppState().frase =
-                                                '${FFAppState().frase} Raiva';
-                                            safeSetState(() {});
-                                            await actions.speakText(
-                                              'raiva',
-                                            );
-                                          },
-                                          text: 'Escolher',
-                                          options: FFButtonOptions(
-                                            width: 131.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.baloo2(
-                                                    fontWeight: FontWeight.normal,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Colors.white,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 4.0,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                CategoryHomeCard(
+                                  title: 'Raiva',
+                                  imagePath: 'assets/images/bravo.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Raiva';
+                                    safeSetState(() {});
+                                    await actions.speakText('raiva');
+                                  },
                                 ),
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Ansiedade',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color:
-                                                      FlutterFlowTheme.of(context)
-                                                          .secondaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/ansioso.png',
-                                            width: 153.0,
-                                            height: 153.0,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            FFAppState().frase =
-                                                '${FFAppState().frase} Ansiedade';
-                                            safeSetState(() {});
-                                            await actions.speakText(
-                                              'ansiedade',
-                                            );
-                                          },
-                                          text: 'Escolher',
-                                          options: FFButtonOptions(
-                                            width: 131.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.baloo2(
-                                                    fontWeight: FontWeight.normal,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Colors.white,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 4.0,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                CategoryHomeCard(
+                                  title: 'Ansiedade',
+                                  imagePath: 'assets/images/ansioso.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Ansiedade';
+                                    safeSetState(() {});
+                                    await actions.speakText('ansiedade');
+                                  },
                                 ),
                               ],
                             ),
                             Wrap(
-                              spacing: 29.0,
-                              runSpacing: 0.0,
+                              spacing: sizeOf.width * 0.05,
                               alignment: WrapAlignment.center,
-                              crossAxisAlignment: WrapCrossAlignment.start,
+                              crossAxisAlignment: WrapCrossAlignment.center,
                               direction: Axis.horizontal,
-                              runAlignment: WrapAlignment.start,
-                              verticalDirection: VerticalDirection.down,
-                              clipBehavior: Clip.none,
                               children: [
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Surpresa',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color:
-                                                      FlutterFlowTheme.of(context)
-                                                          .secondaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/surpreso.png',
-                                            width: 153.0,
-                                            height: 153.0,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            FFAppState().frase =
-                                                '${FFAppState().frase} Surpresa';
-                                            safeSetState(() {});
-                                            await actions.speakText(
-                                              'surpresa',
-                                            );
-                                          },
-                                          text: 'Escolher',
-                                          options: FFButtonOptions(
-                                            width: 131.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.baloo2(
-                                                    fontWeight: FontWeight.normal,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Colors.white,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 4.0,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                CategoryHomeCard(
+                                  title: 'Surpresa',
+                                  imagePath: 'assets/images/surpreso.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Surpresa';
+                                    safeSetState(() {});
+                                    await actions.speakText('surpresa');
+                                  },
                                 ),
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Tédio',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color:
-                                                      FlutterFlowTheme.of(context)
-                                                          .secondaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/entediado.png',
-                                            width: 153.0,
-                                            height: 153.0,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            FFAppState().frase =
-                                                '${FFAppState().frase} Tédio';
-                                            safeSetState(() {});
-                                            await actions.speakText(
-                                              'tédio',
-                                            );
-                                          },
-                                          text: 'Escolher',
-                                          options: FFButtonOptions(
-                                            width: 131.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.baloo2(
-                                                    fontWeight: FontWeight.normal,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Colors.white,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 4.0,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                CategoryHomeCard(
+                                  title: 'Tédio',
+                                  imagePath: 'assets/images/entediado.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Tédio';
+                                    safeSetState(() {});
+                                    await actions.speakText('tedio');
+                                  },
                                 ),
                               ],
                             ),
                             Wrap(
-                              spacing: 29.0,
-                              runSpacing: 0.0,
+                              spacing: sizeOf.width * 0.05,
                               alignment: WrapAlignment.center,
-                              crossAxisAlignment: WrapCrossAlignment.start,
+                              crossAxisAlignment: WrapCrossAlignment.center,
                               direction: Axis.horizontal,
-                              runAlignment: WrapAlignment.start,
-                              verticalDirection: VerticalDirection.down,
-                              clipBehavior: Clip.none,
                               children: [
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Calma',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color:
-                                                      FlutterFlowTheme.of(context)
-                                                          .secondaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/calmo.png',
-                                            width: 153.0,
-                                            height: 153.0,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            FFAppState().frase =
-                                                '${FFAppState().frase} Calma';
-                                            safeSetState(() {});
-                                            await actions.speakText(
-                                              'calma',
-                                            );
-                                          },
-                                          text: 'Escolher',
-                                          options: FFButtonOptions(
-                                            width: 131.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.baloo2(
-                                                    fontWeight: FontWeight.normal,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Colors.white,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 4.0,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                CategoryHomeCard(
+                                  title: 'Calma',
+                                  imagePath: 'assets/images/calmo.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Calma';
+                                    safeSetState(() {});
+                                    await actions.speakText('calma');
+                                  },
                                 ),
-                                Material(
-                                  color: Colors.transparent,
-                                  elevation: 0.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: 153.0,
-                                    height: 249.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).secondary,
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            'Vergonha',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Nunito Sans',
-                                                  color:
-                                                      FlutterFlowTheme.of(context)
-                                                          .secondaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                        ),
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/envergonhado.png',
-                                            width: 153.0,
-                                            height: 153.0,
-                                            fit: BoxFit.cover,
-                                            alignment: Alignment(0.0, 0.0),
-                                          ),
-                                        ),
-                                        FFButtonWidget(
-                                          onPressed: () async {
-                                            FFAppState().frase =
-                                                '${FFAppState().frase} Vergonha';
-                                            safeSetState(() {});
-                                            await actions.speakText(
-                                              'vergonha',
-                                            );
-                                          },
-                                          text: 'Escolher',
-                                          options: FFButtonOptions(
-                                            width: 131.0,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  font: GoogleFonts.baloo2(
-                                                    fontWeight: FontWeight.normal,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: Colors.white,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(context)
-                                                          .titleSmall
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 4.0,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                CategoryHomeCard(
+                                  title: 'Vergonha',
+                                  imagePath: 'assets/images/envergonhado.png',
+                                  speak: () async {
+                                    FFAppState().frase =
+                                        '${FFAppState().frase} Vergonha';
+                                    safeSetState(() {});
+                                    await actions.speakText('vergonha');
+                                  },
                                 ),
                               ],
                             ),
-                          ].divide(SizedBox(height: 25.0)),
+                            ].divide(
+                            SizedBox(
+                              height: sizeOf.height * 0.03,
+                            ),
+                          ),
                         ),
                       ),
                     ),
