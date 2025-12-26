@@ -61,6 +61,8 @@ class _LockSupervisionPageWidgetState extends State<LockSupervisionPageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
+    final sizeOf = MediaQuery.of(context).size;
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -70,7 +72,10 @@ class _LockSupervisionPageWidgetState extends State<LockSupervisionPageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+          padding: EdgeInsets.symmetric(
+            vertical: sizeOf.height * 0.05,
+            horizontal: sizeOf.width * 0.01,
+          ),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -143,41 +148,175 @@ class _LockSupervisionPageWidgetState extends State<LockSupervisionPageWidget> {
                     ],
                   ),
                 ),
-                Flexible(
-                  child: Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Text(
-                      'Acesso à área para responsáveis',
-                      textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            font: GoogleFonts.nunito(
-                              fontWeight: FontWeight.bold,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontStyle,
-                            ),
-                            fontSize: valueOrDefault<double>(
-                              FFAppState().fontSize,
-                              24.0,
-                            ),
-                            letterSpacing: 0.0,
+                SizedBox(
+                  height: sizeOf.height * 0.02,
+                ),
+                Opacity(
+                  opacity: FFAppState().contrast,
+                  child: Text(
+                    'Acesso à área para responsáveis',
+                    textAlign: TextAlign.center,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          font: GoogleFonts.nunito(
                             fontWeight: FontWeight.bold,
                             fontStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .fontStyle,
                           ),
-                    ),
+                          fontSize: valueOrDefault<double>(
+                            FFAppState().fontSize,
+                            24.0,
+                          ),
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.bold,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                        ),
                   ),
                 ),
-                Flexible(
-                  child: Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          15.0, 15.0, 15.0, 25.0),
-                      child: Text(
-                        'Para garantir a segurança e manter a experiência da criança protegida, esta área é acessível apenas para pais e responsáveis.',
-                        textAlign: TextAlign.start,
+                SizedBox(
+                  height: sizeOf.height * 0.025,
+                ),
+                Opacity(
+                  opacity: FFAppState().contrast,
+                  child: Text(
+                    'Para garantir a segurança e manter a experiência da criança protegida, esta área é acessível apenas para pais e responsáveis.',
+                    textAlign: TextAlign.start,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          font: GoogleFonts.baloo2(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
+                          fontSize: valueOrDefault<double>(
+                            FFAppState().fontSize,
+                            18.0,
+                          ),
+                          letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                        ),
+                  ),
+                ),
+                SizedBox(
+                  height: sizeOf.height * 0.025,
+                ),
+                Opacity(
+                  opacity: FFAppState().contrast,
+                  child: Text(
+                    'Digite o PIN para continuar:',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          font: GoogleFonts.nunito(
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
+                          fontSize: valueOrDefault<double>(
+                            FFAppState().fontSize,
+                            20.0,
+                          ),
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.bold,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                        ),
+                  ),
+                ),
+                Opacity(
+                  opacity: FFAppState().contrast,
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 25.0),
+                    child: Container(
+                      width: double.infinity,
+                      child: TextFormField(
+                        controller: _model.textController,
+                        focusNode: _model.textFieldFocusNode,
+                        autofocus: false,
+                        enabled: true,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          isDense: true,
+                          labelStyle:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    font: GoogleFonts.baloo2(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
+                                    ),
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontStyle,
+                                  ),
+                          hintText:
+                              'Informe o PIN (ano de nascimento do responsável)',
+                          hintStyle:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    font: GoogleFonts.baloo2(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
+                                    ),
+                                    color: FlutterFlowTheme.of(context).accent3,
+                                    fontSize: 18.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontStyle,
+                                  ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).error,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).error,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          filled: true,
+                          fillColor:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          contentPadding: EdgeInsets.all(20.0),
+                        ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               font: GoogleFonts.baloo2(
                                 fontWeight: FlutterFlowTheme.of(context)
@@ -189,7 +328,7 @@ class _LockSupervisionPageWidgetState extends State<LockSupervisionPageWidget> {
                               ),
                               fontSize: valueOrDefault<double>(
                                 FFAppState().fontSize,
-                                18.0,
+                                14.0,
                               ),
                               letterSpacing: 0.0,
                               fontWeight: FlutterFlowTheme.of(context)
@@ -199,216 +338,122 @@ class _LockSupervisionPageWidgetState extends State<LockSupervisionPageWidget> {
                                   .bodyMedium
                                   .fontStyle,
                             ),
+                        cursorColor: FlutterFlowTheme.of(context).primaryText,
+                        enableInteractiveSelection: true,
+                        validator:
+                            _model.textControllerValidator.asValidator(context),
                       ),
                     ),
                   ),
                 ),
-                Flexible(
-                  child: Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Text(
-                      'Digite o PIN para continuar:',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            font: GoogleFonts.nunito(
-                              fontWeight: FontWeight.bold,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontStyle,
+                Opacity(
+                  opacity: FFAppState().contrast,
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      var _shouldSetState = false;
+                      FFAppState().pin = _model.textController.text;
+                      FFAppState().dataNascimento =
+                          _model.userRef!.dataNascimentoResponsavel;
+
+                      _model.textController.text = '';
+                      safeSetState(() {});
+                      _model.dateValidate = await actions.validateBirthYearPin(
+                        FFAppState().dataNascimento,
+                        FFAppState().pin,
+                      );
+
+                      _shouldSetState = true;
+                      if (_model.dateValidate!) {
+                        context.pushNamed(
+                          SupervisionPageWidget.routeName,
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.rightToLeft,
+                              duration: Duration(milliseconds: 1000),
                             ),
-                            fontSize: valueOrDefault<double>(
-                              FFAppState().fontSize,
-                              20.0,
+                          },
+                        );
+
+                        FFAppState().pin = "";
+
+                        if (_shouldSetState) safeSetState(() {});
+                        return;
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'PIN incorreto. Tente novamente.',
+                              style: GoogleFonts.roboto(
+                                color: Colors.white,
+                                fontSize: 18.0,
+                              ),
                             ),
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.bold,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontStyle,
+                            duration: Duration(milliseconds: 3000),
+                            backgroundColor: FlutterFlowTheme.of(context).error,
                           ),
+                        );
+
+                        return;
+                      }
+                    },
+                    text: 'Confirmar',
+                    options: FFButtonOptions(
+                      width: double.infinity,
+                      height: 56.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).success,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                font: GoogleFonts.baloo2(
+                                  fontWeight: FontWeight.normal,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
+                                ),
+                                color: Colors.white,
+                                fontSize: 20.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.normal,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .fontStyle,
+                              ),
+                      elevation: 4.0,
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
                 ),
-                Flexible(
-                  child: Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          15.0, 15.0, 15.0, 25.0),
-                      child: Container(
-                        width: 360.0,
-                        child: TextFormField(
-                          controller: _model.textController,
-                          focusNode: _model.textFieldFocusNode,
-                          autofocus: false,
-                          enabled: true,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            isDense: true,
-                            labelStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  font: GoogleFonts.baloo2(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontStyle,
-                                  ),
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontStyle,
-                                ),
-                            hintText:
-                                'Informe o PIN (ano de nascimento do responsável)',
-                            hintStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  font: GoogleFonts.baloo2(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontStyle,
-                                  ),
-                                  color: FlutterFlowTheme.of(context).accent3,
-                                  fontSize: 18.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontStyle,
-                                ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).error,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).error,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            filled: true,
-                            fillColor: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            contentPadding: EdgeInsets.all(20.0),
-                          ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.baloo2(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    fontSize: valueOrDefault<double>(
-                                      FFAppState().fontSize,
-                                      14.0,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                          cursorColor: FlutterFlowTheme.of(context).primaryText,
-                          enableInteractiveSelection: true,
-                          validator: _model.textControllerValidator
-                              .asValidator(context),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Flexible(
-                  child: Opacity(
-                    opacity: FFAppState().contrast,
+                Opacity(
+                  opacity: FFAppState().contrast,
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        var _shouldSetState = false;
-                        FFAppState().pin = _model.textController.text;
-                        FFAppState().dataNascimento =
-                            _model.userRef!.dataNascimentoResponsavel;
-                        safeSetState(() {});
-                        _model.dateValidate =
-                            await actions.validateBirthYearPin(
-                          FFAppState().dataNascimento,
-                          FFAppState().pin,
-                        );
-                        _shouldSetState = true;
-                        if (_model.dateValidate!) {
-                          context.pushNamed(
-                            SupervisionPageWidget.routeName,
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.rightToLeft,
-                                duration: Duration(milliseconds: 1000),
-                              ),
-                            },
-                          );
-
-                          if (_shouldSetState) safeSetState(() {});
-                          return;
-                        } else {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                'PIN incorreto. Tente novamente.',
-                                style: GoogleFonts.roboto(
-                                  color: Color(0x00000000),
-                                  fontSize: 18.0,
-                                ),
-                              ),
-                              duration: Duration(milliseconds: 3000),
-                              backgroundColor:
-                                  FlutterFlowTheme.of(context).error,
+                        context.pushNamed(
+                          ForgotPINPageWidget.routeName,
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.rightToLeft,
+                              duration: Duration(milliseconds: 1000),
                             ),
-                          );
-                        }
-
-                        Navigator.pop(context);
-                        if (_shouldSetState) safeSetState(() {});
+                          },
+                        );
                       },
-                      text: 'Confirmar',
+                      text: 'Esqueci o PIN',
                       options: FFButtonOptions(
-                        width: 360.0,
+                        width: double.infinity,
                         height: 56.0,
                         padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).success,
+                        color: FlutterFlowTheme.of(context).warning,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   font: GoogleFonts.baloo2(
@@ -427,57 +472,6 @@ class _LockSupervisionPageWidgetState extends State<LockSupervisionPageWidget> {
                                 ),
                         elevation: 4.0,
                         borderRadius: BorderRadius.circular(10.0),
-                      ),
-                    ),
-                  ),
-                ),
-                Flexible(
-                  child: Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          context.pushNamed(
-                            ForgotPINPageWidget.routeName,
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.rightToLeft,
-                                duration: Duration(milliseconds: 1000),
-                              ),
-                            },
-                          );
-                        },
-                        text: 'Esqueci o PIN',
-                        options: FFButtonOptions(
-                          width: 360.0,
-                          height: 56.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).warning,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    font: GoogleFonts.baloo2(
-                                      fontWeight: FontWeight.normal,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontStyle,
-                                    ),
-                                    color: Colors.white,
-                                    fontSize: 20.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .fontStyle,
-                                  ),
-                          elevation: 4.0,
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
                       ),
                     ),
                   ),

@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+// TODO: ARRUMAR PARA, SE MUDAR O PIN, VALIDAR DA MANEIRA CORRETA
+
 Future<bool> validateBirthYearPin(
   String dataNascimento,
   String pinDigitado,

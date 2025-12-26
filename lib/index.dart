@@ -49,5 +49,5 @@ export '/pages/supervision/lock_supervision_page/lock_supervision_page_widget.da
     show LockSupervisionPageWidget;
 export '/pages/supervision/supervision_page/supervision_page_widget.dart'
     show SupervisionPageWidget;
-export '/pages/supervision/forgot_p_i_n_page/forgot_p_i_n_page_widget.dart'
+export 'pages/supervision/supervision_page/forgot_p_i_n_page/forgot_p_i_n_page_widget.dart'
     show ForgotPINPageWidget;

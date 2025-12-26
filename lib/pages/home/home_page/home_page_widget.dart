@@ -186,7 +186,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     50.0,
                                   ),
                                 ),
-                                onPressed: () {},
+                                onPressed: () async {
+                                  context.pushNamed(
+                                    LockSupervisionPageWidget.routeName,
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType:
+                                            PageTransitionType.rightToLeft,
+                                        duration: Duration(milliseconds: 1000),
+                                      ),
+                                    },
+                                  );
+                                },
                               ),
                             ),
                             Opacity(
@@ -402,8 +414,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   context: context,
                                   title: 'Comunicação',
                                   imagePath: 'assets/images/comunicacao.png',
-                                  onTap: () => context
-                                      .pushNamed(CommunicationPageWidget.routeName),
+                                  onTap: () => context.pushNamed(
+                                      CommunicationPageWidget.routeName),
                                 ),
                               ],
                             ),

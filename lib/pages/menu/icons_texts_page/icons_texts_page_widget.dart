@@ -87,87 +87,102 @@ class _IconsTextsPageWidgetState extends State<IconsTextsPageWidget> {
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100.0),
-        child: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
-          title: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Opacity(
-                opacity: FFAppState().contrast,
-                child: Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(21.0, 35.0, 0.0, 19.0),
-                  child: Text(
-                    'TinoTEA',
-                    style: FlutterFlowTheme.of(context).headlineMedium.override(
-                          fontFamily: 'Nunito Sans',
-                          color: Colors.white,
-                          fontSize: 40.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.bold,
-                        ),
+            preferredSize: Size.fromHeight(100.0),
+            child: AppBar(
+              backgroundColor: FlutterFlowTheme.of(context).primary,
+              automaticallyImplyLeading: false,
+              title: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Opacity(
+                    opacity: FFAppState().contrast,
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(21.0, 35.0, 0.0, 19.0),
+                      child: Text(
+                        'TinoTEA',
+                        style: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .override(
+                              fontFamily: 'Nunito Sans',
+                              color: Colors.white,
+                              fontSize: 40.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(70.0, 0.0, 13.0, 0.0),
-                child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      context.pushNamed(
-                        LockSupervisionPageWidget.routeName,
-                        extra: <String, dynamic>{
-                          kTransitionInfoKey: TransitionInfo(
-                            hasTransition: true,
-                            transitionType: PageTransitionType.rightToLeft,
-                            duration: Duration(milliseconds: 1000),
-                          ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(70.0, 0.0, 13.0, 0.0),
+                    child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(
+                            LockSupervisionPageWidget.routeName,
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.rightToLeft,
+                                duration: Duration(milliseconds: 1000),
+                              ),
+                            },
+                          );
                         },
-                      );
-                    },
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Opacity(
-                          opacity: FFAppState().contrast,
-                          child: FlutterFlowIconButton(
-                            borderRadius: 0,
-                            buttonSize: 60,
-                            icon: Icon(
-                              Icons.person_outlined,
-                              size: valueOrDefault<double>(
-                                FFAppState().iconSize,
-                                50.0,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Opacity(
+                              opacity: FFAppState().contrast,
+                              child: FlutterFlowIconButton(
+                                borderRadius: 0,
+                                buttonSize: 60,
+                                icon: Icon(
+                                  Icons.person_outlined,
+                                  size: valueOrDefault<double>(
+                                    FFAppState().iconSize,
+                                    50.0,
+                                  ),
+                                ),
+                                onPressed: () async {
+                                  context.pushNamed(
+                                    LockSupervisionPageWidget.routeName,
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType:
+                                            PageTransitionType.rightToLeft,
+                                        duration: Duration(milliseconds: 1000),
+                                      ),
+                                    },
+                                  );
+                                },
                               ),
                             ),
-                            onPressed: () {},
-                          ),
-                        ),
-                        Opacity(
-                          opacity: FFAppState().contrast,
-                          child: Text(
-                            'Supervisão',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
-                          ),
-                        ),
-                      ],
-                    )),
+                            Opacity(
+                              opacity: FFAppState().contrast,
+                              child: Text(
+                                'Supervisão',
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                            ),
+                          ],
+                        )),
+                  ),
+                ],
               ),
-            ],
+              actions: [],
+              centerTitle: false,
+              toolbarHeight: 100.0,
+              elevation: 2.0,
+            ),
           ),
-          actions: [],
-          centerTitle: false,
-          toolbarHeight: 100.0,
-          elevation: 2.0,
-        ),
-      ),
-      body: SafeArea(
+          body: SafeArea(
             top: true,
             child: SingleChildScrollView(
               child: Column(
@@ -194,11 +209,11 @@ class _IconsTextsPageWidgetState extends State<IconsTextsPageWidget> {
                               MenuPageWidget.routeName,
                               extra: <String, dynamic>{
                                 kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType:
-                                            PageTransitionType.leftToRight,
-                                        duration: Duration(milliseconds: 1000),
-                                      ),
+                                  hasTransition: true,
+                                  transitionType:
+                                      PageTransitionType.leftToRight,
+                                  duration: Duration(milliseconds: 1000),
+                                ),
                               },
                             );
                           },

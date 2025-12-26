@@ -119,7 +119,19 @@ class _EmotionsPageWidgetState extends State<EmotionsPageWidget> {
                                     50.0,
                                   ),
                                 ),
-                                onPressed: () {},
+                                onPressed: () async {
+                                  context.pushNamed(
+                                    LockSupervisionPageWidget.routeName,
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType:
+                                            PageTransitionType.rightToLeft,
+                                        duration: Duration(milliseconds: 1000),
+                                      ),
+                                    },
+                                  );
+                                },
                               ),
                             ),
                             Opacity(
@@ -305,7 +317,8 @@ class _EmotionsPageWidgetState extends State<EmotionsPageWidget> {
                                 buttonSize: 60.0,
                                 icon: Icon(
                                   Icons.arrow_back,
-                                  color: FlutterFlowTheme.of(context).primaryText,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
                                   size: valueOrDefault<double>(
                                     FFAppState().iconSize,
                                     56.0,
@@ -531,7 +544,7 @@ class _EmotionsPageWidgetState extends State<EmotionsPageWidget> {
                                 ),
                               ],
                             ),
-                            ].divide(
+                          ].divide(
                             SizedBox(
                               height: sizeOf.height * 0.03,
                             ),

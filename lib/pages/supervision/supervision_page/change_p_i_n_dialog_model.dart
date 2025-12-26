@@ -1,8 +1,9 @@
+import 'package:tino_t_e_a/pages/supervision/supervision_page/supervision_page_widget.dart' show SupervisionPageWidget;
+
 import '/flutter_flow/flutter_flow_util.dart';
-import 'change_p_i_n_dialog_widget.dart' show ChangePINDialogWidget;
 import 'package:flutter/material.dart';
 
-class ChangePINDialogModel extends FlutterFlowModel<ChangePINDialogWidget> {
+class ChangePINDialogModel extends FlutterFlowModel<SupervisionPageWidget> {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for TextField widget.

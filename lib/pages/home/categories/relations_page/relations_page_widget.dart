@@ -119,7 +119,19 @@ class _RelationsPageWidgetState extends State<RelationsPageWidget> {
                                     50.0,
                                   ),
                                 ),
-                                onPressed: () {},
+                                onPressed: () async {
+                                  context.pushNamed(
+                                    LockSupervisionPageWidget.routeName,
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType:
+                                            PageTransitionType.rightToLeft,
+                                        duration: Duration(milliseconds: 1000),
+                                      ),
+                                    },
+                                  );
+                                },
                               ),
                             ),
                             Opacity(
@@ -263,25 +275,26 @@ class _RelationsPageWidgetState extends State<RelationsPageWidget> {
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).success,
-                            textStyle:
-                                FlutterFlowTheme.of(context).titleSmall.override(
-                                      font: GoogleFonts.baloo2(
-                                        fontWeight: FontWeight.normal,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontStyle,
-                                      ),
-                                      color: Colors.white,
-                                      fontSize: valueOrDefault<double>(
-                                        FFAppState().fontSize,
-                                        20.0,
-                                      ),
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.normal,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontStyle,
-                                    ),
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  font: GoogleFonts.baloo2(
+                                    fontWeight: FontWeight.normal,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                                  color: Colors.white,
+                                  fontSize: valueOrDefault<double>(
+                                    FFAppState().fontSize,
+                                    20.0,
+                                  ),
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
+                                ),
                             elevation: 4.0,
                             borderRadius: BorderRadius.circular(10.0),
                           ),

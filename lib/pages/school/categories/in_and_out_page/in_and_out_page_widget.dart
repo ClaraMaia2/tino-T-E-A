@@ -119,7 +119,19 @@ class _InAndOutPageWidgetState extends State<InAndOutPageWidget> {
                                     50.0,
                                   ),
                                 ),
-                                onPressed: () {},
+                                onPressed: () async {
+                                  context.pushNamed(
+                                    LockSupervisionPageWidget.routeName,
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType:
+                                            PageTransitionType.rightToLeft,
+                                        duration: Duration(milliseconds: 1000),
+                                      ),
+                                    },
+                                  );
+                                },
                               ),
                             ),
                             Opacity(

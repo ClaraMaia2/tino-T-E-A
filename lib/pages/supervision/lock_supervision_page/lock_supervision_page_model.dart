@@ -22,6 +22,7 @@ class LockSupervisionPageModel
 
   @override
   void dispose() {
+    textController.text = "";
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
