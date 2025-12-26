@@ -119,87 +119,90 @@ class _ScholarPageWidgetState extends State<ScholarPageWidget> {
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100.0),
-        child: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
-          title: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Opacity(
-                opacity: FFAppState().contrast,
-                child: Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(21.0, 35.0, 0.0, 19.0),
-                  child: Text(
-                    'TinoTEA',
-                    style: FlutterFlowTheme.of(context).headlineMedium.override(
-                          fontFamily: 'Nunito Sans',
-                          color: Colors.white,
-                          fontSize: 40.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.bold,
-                        ),
+            preferredSize: Size.fromHeight(100.0),
+            child: AppBar(
+              backgroundColor: FlutterFlowTheme.of(context).primary,
+              automaticallyImplyLeading: false,
+              title: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Opacity(
+                    opacity: FFAppState().contrast,
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(21.0, 35.0, 0.0, 19.0),
+                      child: Text(
+                        'TinoTEA',
+                        style: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .override(
+                              fontFamily: 'Nunito Sans',
+                              color: Colors.white,
+                              fontSize: 40.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(70.0, 0.0, 13.0, 0.0),
-                child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      context.pushNamed(
-                        LockSupervisionPageWidget.routeName,
-                        extra: <String, dynamic>{
-                          kTransitionInfoKey: TransitionInfo(
-                            hasTransition: true,
-                            transitionType: PageTransitionType.rightToLeft,
-                            duration: Duration(milliseconds: 1000),
-                          ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(70.0, 0.0, 13.0, 0.0),
+                    child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(
+                            LockSupervisionPageWidget.routeName,
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.rightToLeft,
+                                duration: Duration(milliseconds: 1000),
+                              ),
+                            },
+                          );
                         },
-                      );
-                    },
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Opacity(
-                          opacity: FFAppState().contrast,
-                          child: FlutterFlowIconButton(
-                            borderRadius: 0,
-                            buttonSize: 60,
-                            icon: Icon(
-                              Icons.person_outlined,
-                              size: valueOrDefault<double>(
-                                FFAppState().iconSize,
-                                50.0,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Opacity(
+                              opacity: FFAppState().contrast,
+                              child: FlutterFlowIconButton(
+                                borderRadius: 0,
+                                buttonSize: 60,
+                                icon: Icon(
+                                  Icons.person_outlined,
+                                  size: valueOrDefault<double>(
+                                    FFAppState().iconSize,
+                                    50.0,
+                                  ),
+                                ),
+                                onPressed: () {},
                               ),
                             ),
-                            onPressed: () {},
-                          ),
-                        ),
-                        Opacity(
-                          opacity: FFAppState().contrast,
-                          child: Text(
-                            'Supervisão',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
-                          ),
-                        ),
-                      ],
-                    )),
+                            Opacity(
+                              opacity: FFAppState().contrast,
+                              child: Text(
+                                'Supervisão',
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                            ),
+                          ],
+                        )),
+                  ),
+                ],
               ),
-            ],
+              actions: [],
+              centerTitle: false,
+              toolbarHeight: 100.0,
+              elevation: 2.0,
+            ),
           ),
-          actions: [],
-          centerTitle: false,
-          toolbarHeight: 100.0,
-          elevation: 2.0,
-        ),
-      ),
-      body: SafeArea(
+          body: SafeArea(
             top: true,
             child: SingleChildScrollView(
               primary: false,
@@ -226,7 +229,8 @@ class _ScholarPageWidgetState extends State<ScholarPageWidget> {
                               ),
                             ),
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisSize: MainAxisSize.max,
                               children: [
                                 Expanded(
                                   flex: 3,
@@ -255,39 +259,43 @@ class _ScholarPageWidgetState extends State<ScholarPageWidget> {
                                 ),
                                 Flexible(
                                   flex: 2,
-                                  child: FFButtonWidget(
-                                    onPressed: () {
-                                      FFAppState().update(() {
-                                        FFAppState().frase = '';
-                                      });
-                                    },
-                                    text: 'Apagar',
-                                    options: FFButtonOptions(
-                                      height: 56,
-                                      color: FlutterFlowTheme.of(context).error,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            font: GoogleFonts.baloo2(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 20),
+                                    child: FFButtonWidget(
+                                      onPressed: () {
+                                        FFAppState().update(() {
+                                          FFAppState().frase = '';
+                                        });
+                                      },
+                                      text: 'Apagar',
+                                      options: FFButtonOptions(
+                                        height: 56,
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              font: GoogleFonts.baloo2(
+                                                fontWeight: FontWeight.normal,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontStyle,
+                                              ),
+                                              color: Colors.white,
+                                              fontSize: valueOrDefault<double>(
+                                                FFAppState().fontSize,
+                                                20.0,
+                                              ),
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                               fontStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmall
                                                       .fontStyle,
                                             ),
-                                            color: Colors.white,
-                                            fontSize: valueOrDefault<double>(
-                                              FFAppState().fontSize,
-                                              20.0,
-                                            ),
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.normal,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .fontStyle,
-                                          ),
-                                      borderRadius: BorderRadius.circular(10),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -346,8 +354,9 @@ class _ScholarPageWidgetState extends State<ScholarPageWidget> {
                     Opacity(
                       opacity: FFAppState().contrast,
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(14.0,
-                            sizeOf.height * 0.05, 14.0, sizeOf.height * 0.1),
+                        padding: EdgeInsets.only(
+                            top: sizeOf.height * 0.05,
+                            bottom: sizeOf.height * 0.14),
                         child: Column(
                           children: [
                             Wrap(

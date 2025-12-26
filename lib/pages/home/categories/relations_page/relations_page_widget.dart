@@ -393,7 +393,7 @@ class _RelationsPageWidgetState extends State<RelationsPageWidget> {
                               direction: Axis.horizontal,
                               children: [
                                 CategoryHomeCard(
-                                  title: 'Familia',
+                                  title: 'Família',
                                   imagePath: 'assets/images/famlia.png',
                                   speak: () async {
                                     FFAppState().frase =

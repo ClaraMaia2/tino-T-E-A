@@ -26,6 +26,7 @@ class CategoryHomeCard extends StatelessWidget {
       child: Container(
         width: 200,
         height: 260,
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 8),
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondary,
           borderRadius: BorderRadius.circular(10),
@@ -36,16 +37,18 @@ class CategoryHomeCard extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            const SizedBox(height: 10),
-            Text(
-              title,
-              textAlign: TextAlign.center,
-              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Nunito Sans',
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
+            FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                title,
+                textAlign: TextAlign.center,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Nunito Sans',
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
             ),
             const SizedBox(height: 8),
             ClipRRect(
@@ -74,7 +77,6 @@ class CategoryHomeCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
-            const SizedBox(height: 10),
           ],
         ),
       ),
