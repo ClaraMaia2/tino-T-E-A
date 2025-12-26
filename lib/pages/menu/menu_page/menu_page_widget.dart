@@ -1,11 +1,13 @@
+import 'package:google_fonts/google_fonts.dart';
+import 'package:tino_t_e_a/auth/firebase_auth/auth_util.dart';
+import 'package:tino_t_e_a/flutter_flow/flutter_flow_widgets.dart';
+import 'package:tino_t_e_a/widgets/menu_card.dart';
+
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/pages/menu/log_out_dialog/log_out_dialog_widget.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'menu_page_model.dart';
 export 'menu_page_model.dart';
@@ -162,323 +164,237 @@ class _MenuPageWidgetState extends State<MenuPageWidget> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Center(
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(14.0, 0.0, 14.0, 0.0),
-                  child: Container(
-                    width: 362.0,
-                    height: 80.0,
-                    decoration: BoxDecoration(),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        context.pushNamed(
-                          ColorsContrastPageWidget.routeName,
-                          extra: <String, dynamic>{
-                            kTransitionInfoKey: TransitionInfo(
-                              hasTransition: true,
-                              transitionType: PageTransitionType.rightToLeft,
-                              duration: Duration(milliseconds: 1000),
-                            ),
-                          },
-                        );
-                      },
-                      child: Card(
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        color: FlutterFlowTheme.of(context).secondary,
-                        elevation: 4.0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
+                child: MenuCard(
+                  iconPath: 'assets/images/paint-pallet-svgrepo-com.svg',
+                  title: 'Cores e contraste',
+                  route: () async {
+                    context.pushNamed(
+                      ColorsContrastPageWidget.routeName,
+                      extra: <String, dynamic>{
+                        kTransitionInfoKey: TransitionInfo(
+                          hasTransition: true,
+                          transitionType:
+                              PageTransitionType.rightToLeft,
+                          duration: Duration(milliseconds: 1000),
                         ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  23.0, 10.0, 0.0, 10.0),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: SvgPicture.asset(
-                                  'assets/images/paint-pallet-svgrepo-com.svg',
-                                  width: 60.0,
-                                  height: 60.0,
-                                  fit: BoxFit.contain,
+                      },
+                    );
+                  },
+                ),
+              ),
+              MenuCard(
+                iconPath: 'assets/images/volume-full-svgrepo-com.svg',
+                title: 'Fala e volume',
+                route: () async {
+                  context.pushNamed(
+                    SpeechVolumePageWidget.routeName,
+                    extra: <String, dynamic>{
+                      kTransitionInfoKey: TransitionInfo(
+                        hasTransition: true,
+                        transitionType: PageTransitionType.rightToLeft,
+                        duration: Duration(milliseconds: 1000),
+                      ),
+                    },
+                  );
+                },
+              ),
+              MenuCard(
+                iconPath: 'assets/images/text-size-solid-svgrepo-com.svg',
+                title: 'Ícones e textos',
+                route: () async {
+                  context.pushNamed(
+                    IconsTextsPageWidget.routeName,
+                    extra: <String, dynamic>{
+                      kTransitionInfoKey: TransitionInfo(
+                        hasTransition: true,
+                        transitionType: PageTransitionType.rightToLeft,
+                        duration: Duration(milliseconds: 1000),
+                      ),
+                    },
+                  );
+                },
+              ),
+              MenuCard(
+                iconPath: 'assets/images/logout-svgrepo-com.svg',
+                title: 'Sair da conta',
+                route: () async {
+                  await showGeneralDialog(
+                    barrierColor: FlutterFlowTheme.of(context)
+                        .primaryText
+                        .withValues(alpha: 0.35),
+                    context: context,
+                    barrierDismissible: true,
+                    barrierLabel: 'Sair da conta',
+                    transitionDuration: const Duration(seconds: 1),
+                    pageBuilder: (context, animation, secondaryAnimation) {
+                      return Center(
+                        child: Material(
+                          color: Colors.transparent,
+                          child: ConstrainedBox(
+                            constraints: const BoxConstraints(
+                              maxHeight: 480,
+                              maxWidth: 380,
+                            ),
+                            child: Container(
+                              width: 363.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                borderRadius: BorderRadius.circular(10.0),
+                                border: Border.all(
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  width: 1.0,
+                                ),
+                              ),
+                              child: SingleChildScrollView(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 20),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    /// TÍTULO
+                                    Opacity(
+                                      opacity: FFAppState().contrast,
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 16),
+                                        child: Text(
+                                          'Sair da conta',
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Nunito Sans',
+                                                fontSize: 36.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                        ),
+                                      ),
+                                    ),
+
+                                    /// TEXTO
+                                    Opacity(
+                                      opacity: FFAppState().contrast,
+                                      child: Padding(
+                                        padding: const EdgeInsets.fromLTRB(
+                                            22, 24, 21, 0),
+                                        child: Text(
+                                          'Você tem certeza que deseja sair da conta?\n\n'
+                                          'Sair agora vai fechar sua sessão. '
+                                          'Para usar o aplicativo novamente, será necessário fazer login.',
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.baloo2(),
+                                                fontSize: 20.0,
+                                              ),
+                                        ),
+                                      ),
+                                    ),
+
+                                    const SizedBox(height: 32),
+
+                                    /// BOTÃO CANCELAR
+                                    Opacity(
+                                      opacity: FFAppState().contrast,
+                                      child: FFButtonWidget(
+                                        onPressed: () {
+                                          context.pop();
+                                        },
+                                        text: 'Cancelar',
+                                        options: FFButtonOptions(
+                                          width: 320,
+                                          height: 56,
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .titleSmall
+                                              .override(
+                                                font: GoogleFonts.baloo2(),
+                                                fontSize: 20,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                              ),
+                                          elevation: 4,
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                        ),
+                                      ),
+                                    ),
+
+                                    const SizedBox(height: 16),
+
+                                    /// BOTÃO CONFIRMAR
+                                    Opacity(
+                                      opacity: FFAppState().contrast,
+                                      child: FFButtonWidget(
+                                        onPressed: () async {
+                                          GoRouter.of(context)
+                                              .prepareAuthEvent(true);
+                                          await authManager.signOut();
+                                          GoRouter.of(context)
+                                              .clearRedirectLocation();
+
+                                          if (context.mounted) {
+                                            context.pushNamedAuth(
+                                              StartPageWidget.routeName,
+                                              context.mounted,
+                                              ignoreRedirect: true,
+                                            );
+                                          }
+                                        },
+                                        text: 'Confirmar',
+                                        options: FFButtonOptions(
+                                          width: 320,
+                                          height: 56,
+                                          color: FlutterFlowTheme.of(context)
+                                              .success,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .titleSmall
+                                              .override(
+                                                font: GoogleFonts.baloo2(),
+                                                fontSize: 20,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                              ),
+                                          elevation: 4,
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  46.0, 14.0, 0.0, 14.0),
-                              child: Text(
-                                'Cores e contraste',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      font: GoogleFonts.baloo2(
-                                        fontWeight: FontWeight.normal,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
-                                      ),
-                                      fontSize: 20.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.normal,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(14.0, 0.0, 14.0, 0.0),
-                child: Container(
-                  width: 362.0,
-                  height: 80.0,
-                  decoration: BoxDecoration(),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      context.pushNamed(
-                        SpeechVolumePageWidget.routeName,
-                        extra: <String, dynamic>{
-                          kTransitionInfoKey: TransitionInfo(
-                            hasTransition: true,
-                            transitionType: PageTransitionType.rightToLeft,
-                            duration: Duration(milliseconds: 1000),
                           ),
-                        },
+                        ),
                       );
                     },
-                    child: Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: FlutterFlowTheme.of(context).secondary,
-                      elevation: 4.0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                23.0, 10.0, 0.0, 10.0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: SvgPicture.asset(
-                                'assets/images/volume-full-svgrepo-com.svg',
-                                width: 60.0,
-                                height: 60.0,
-                                fit: BoxFit.contain,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                46.0, 14.0, 0.0, 14.0),
-                            child: Text(
-                              'Fala e volume',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    font: GoogleFonts.baloo2(
-                                      fontWeight: FontWeight.normal,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    fontSize: 20.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(14.0, 0.0, 14.0, 0.0),
-                child: Container(
-                  width: 362.0,
-                  height: 80.0,
-                  decoration: BoxDecoration(),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      context.pushNamed(
-                        IconsTextsPageWidget.routeName,
-                        extra: <String, dynamic>{
-                          kTransitionInfoKey: TransitionInfo(
-                            hasTransition: true,
-                            transitionType: PageTransitionType.rightToLeft,
-                            duration: Duration(milliseconds: 1000),
-                          ),
-                        },
+                    transitionBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                      final curvedAnimation = CurvedAnimation(
+                        parent: animation,
+                        curve: Curves.easeOutCubic,
+                      );
+
+                      return FadeTransition(
+                        opacity: curvedAnimation,
+                        child: ScaleTransition(
+                          scale: Tween<double>(begin: 0.95, end: 1.0)
+                              .animate(curvedAnimation),
+                          child: child,
+                        ),
                       );
                     },
-                    child: Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: FlutterFlowTheme.of(context).secondary,
-                      elevation: 4.0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                23.0, 10.0, 0.0, 10.0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: SvgPicture.asset(
-                                'assets/images/text-size-solid-svgrepo-com.svg',
-                                width: 60.0,
-                                height: 60.0,
-                                fit: BoxFit.contain,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                46.0, 14.0, 0.0, 14.0),
-                            child: Text(
-                              'Ícones e textos',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    font: GoogleFonts.baloo2(
-                                      fontWeight: FontWeight.normal,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    fontSize: 20.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(14.0, 0.0, 14.0, 0.0),
-                child: Container(
-                  width: 362.0,
-                  height: 80.0,
-                  decoration: BoxDecoration(),
-                  child: Builder(
-                    builder: (context) => InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        await showDialog(
-                          barrierColor:
-                              FlutterFlowTheme.of(context).primaryText,
-                          context: context,
-                          builder: (dialogContext) {
-                            return Dialog(
-                              elevation: 0,
-                              insetPadding: EdgeInsets.zero,
-                              backgroundColor: Colors.transparent,
-                              alignment: AlignmentDirectional(0.0, 0.0)
-                                  .resolve(Directionality.of(context)),
-                              child: GestureDetector(
-                                onTap: () {
-                                  FocusScope.of(dialogContext).unfocus();
-                                  FocusManager.instance.primaryFocus?.unfocus();
-                                },
-                                child: Container(
-                                  height: 440.0,
-                                  width: 363.0,
-                                  child: LogOutDialogWidget(),
-                                ),
-                              ),
-                            );
-                          },
-                        );
-                      },
-                      child: Card(
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        color: FlutterFlowTheme.of(context).secondary,
-                        elevation: 4.0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  23.0, 10.0, 0.0, 10.0),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: SvgPicture.asset(
-                                  'assets/images/logout-svgrepo-com.svg',
-                                  width: 60.0,
-                                  height: 60.0,
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  46.0, 14.0, 0.0, 14.0),
-                              child: Text(
-                                'Sair da conta',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      font: GoogleFonts.baloo2(
-                                        fontWeight: FontWeight.normal,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
-                                      ),
-                                      fontSize: 20.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.normal,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                  );
+                },
               ),
             ]
                 .divide(SizedBox(height: 40.0))

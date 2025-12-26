@@ -28,6 +28,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (FFAppState().contrast < 0.0 || FFAppState().contrast > 1.0) {
+        FFAppState().contrast = 1.0;
+      }
+    });
     _model = createModel(context, () => HomePageModel());
   }
 
@@ -48,7 +53,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             width: cardWidth,
             child: AspectRatio(
               aspectRatio:
-                  3 / 4, // 🔒 proporção fixa (não depende da altura da tela)
+                  3 / 4, 
               child: Material(
                 elevation: 4,
                 borderRadius: BorderRadius.circular(10),
@@ -118,10 +123,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         canPop: false,
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: valueOrDefault<Color>(
-            FFAppState().enableRepeatColor,
-            FlutterFlowTheme.of(context).secondaryBackground,
-          ),
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           appBar: PreferredSize(
             preferredSize: Size.fromHeight(100.0),
             child: AppBar(

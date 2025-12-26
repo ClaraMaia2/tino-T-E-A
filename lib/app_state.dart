@@ -16,11 +16,7 @@ class FFAppState extends ChangeNotifier {
 
   Future initializePersistedState() async {
     prefs = await SharedPreferences.getInstance();
-    _safeInit(() {
-      _enableRepeatColor =
-          _colorFromIntValue(prefs.getInt('ff_enableRepeatColor')) ??
-              _enableRepeatColor;
-    });
+
     _safeInit(() {
       _iconSize = prefs.getDouble('ff_iconSize') ?? _iconSize;
     });
@@ -34,8 +30,17 @@ class FFAppState extends ChangeNotifier {
       _audioVolume = prefs.getDouble('ff_audioVolume') ?? _audioVolume;
     });
     _safeInit(() {
-      _enableRepeatText =
-          prefs.getString('ff_enableRepeatText') ?? _enableRepeatText;
+      final dynamic storedValue = prefs.get('ff_enableRepeatText');
+
+      if (storedValue is bool) {
+        _enableRepeatText = storedValue;
+      } else if (storedValue is String) {
+        // Migração de versões antigas
+        _enableRepeatText = storedValue.toLowerCase() == 'ativado';
+        prefs.setBool('ff_enableRepeatText', _enableRepeatText);
+      } else {
+        _enableRepeatText = true; // padrão seguro
+      }
     });
     _safeInit(() {
       _pin = prefs.getString('ff_pin') ?? _pin;
@@ -48,13 +53,6 @@ class FFAppState extends ChangeNotifier {
   }
 
   late SharedPreferences prefs;
-
-  Color _enableRepeatColor = Colors.transparent;
-  Color get enableRepeatColor => _enableRepeatColor;
-  set enableRepeatColor(Color value) {
-    _enableRepeatColor = value;
-    prefs.setInt('ff_enableRepeatColor', value.value);
-  }
 
   String _frase = '';
   String get frase => _frase;
@@ -126,11 +124,11 @@ class FFAppState extends ChangeNotifier {
     prefs.setDouble('ff_audioVolume', value);
   }
 
-  String _enableRepeatText = '';
-  String get enableRepeatText => _enableRepeatText;
-  set enableRepeatText(String value) {
+  bool _enableRepeatText = true;
+  bool get enableRepeatText => _enableRepeatText;
+  set enableRepeatText(bool value) {
     _enableRepeatText = value;
-    prefs.setString('ff_enableRepeatText', value);
+    prefs.setBool('ff_enableRepeatText', value);
   }
 
   String _pin = '';

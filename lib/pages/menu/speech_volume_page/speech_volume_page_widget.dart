@@ -175,6 +175,9 @@ class _SpeechVolumePageWidgetState extends State<SpeechVolumePageWidget> {
                           },
                         ),
                       ),
+                      SizedBox(
+                        width: 20,
+                      ),
                       Opacity(
                         opacity: FFAppState().contrast,
                         child: Text(
@@ -264,6 +267,7 @@ class _SpeechVolumePageWidgetState extends State<SpeechVolumePageWidget> {
                       ),
                     ),
                   ),
+                  // ===== SLIDER VOLUME =====
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(19.0, 15.0, 19.0, 0.0),
@@ -274,7 +278,7 @@ class _SpeechVolumePageWidgetState extends State<SpeechVolumePageWidget> {
                         Opacity(
                           opacity: FFAppState().contrast,
                           child: FaIcon(
-                            FontAwesomeIcons.volumeDown,
+                            FontAwesomeIcons.volumeLow,
                             color: FlutterFlowTheme.of(context).primaryText,
                             size: valueOrDefault<double>(
                               FFAppState().iconSize,
@@ -282,34 +286,35 @@ class _SpeechVolumePageWidgetState extends State<SpeechVolumePageWidget> {
                             ),
                           ),
                         ),
-                        Opacity(
-                          opacity: FFAppState().contrast,
-                          child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: Container(
-                                width: 210.0,
+                        Expanded(
+                          child: Opacity(
+                            opacity: FFAppState().contrast,
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
                                 child: Slider.adaptive(
                                   activeColor:
                                       FlutterFlowTheme.of(context).primaryText,
                                   inactiveColor:
                                       FlutterFlowTheme.of(context).accent3,
                                   min: 0.0,
-                                  max: 100.0,
-                                  value: _model.sliderContrastValue ??= 0.0,
-                                  label: _model.sliderContrastValue?.toString(),
+                                  max: 1.0,
+                                  value: _model.sliderAudioVolumeValue ??=
+                                      FFAppState().audioVolume,
+                                  label:
+                                      _model.sliderAudioVolumeValue?.toString(),
                                   divisions: 100,
                                   onChanged: (newValue) {
-                                    safeSetState(() =>
-                                        _model.sliderContrastValue = newValue);
+                                    safeSetState(() => _model
+                                        .sliderAudioVolumeValue = newValue);
                                   },
                                   onChangeEnd: (newValue) async {
-                                    safeSetState(() =>
-                                        _model.sliderContrastValue = newValue);
-                                    FFAppState().contrast =
-                                        _model.sliderContrastValue!;
+                                    safeSetState(() => _model
+                                        .sliderAudioVolumeValue = newValue);
+                                    FFAppState().audioVolume =
+                                        _model.sliderAudioVolumeValue!;
                                     safeSetState(() {});
                                   },
                                 ),
@@ -320,7 +325,7 @@ class _SpeechVolumePageWidgetState extends State<SpeechVolumePageWidget> {
                         Opacity(
                           opacity: FFAppState().contrast,
                           child: FaIcon(
-                            FontAwesomeIcons.volumeUp,
+                            FontAwesomeIcons.volumeHigh,
                             color: FlutterFlowTheme.of(context).primaryText,
                             size: valueOrDefault<double>(
                               FFAppState().iconSize,
@@ -331,6 +336,7 @@ class _SpeechVolumePageWidgetState extends State<SpeechVolumePageWidget> {
                       ],
                     ),
                   ),
+                  // ===== REPETIR FALA =====
                   Opacity(
                     opacity: FFAppState().contrast,
                     child: Align(
@@ -366,115 +372,86 @@ class _SpeechVolumePageWidgetState extends State<SpeechVolumePageWidget> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(19.0, 15.0, 19.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            FaIcon(
-                              FontAwesomeIcons.check,
-                              color: valueOrDefault<Color>(
-                                FFAppState().enableRepeatColor,
-                                FlutterFlowTheme.of(context).success,
-                              ),
-                              size: valueOrDefault<double>(
-                                FFAppState().iconSize,
-                                56.0,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  5.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                valueOrDefault<String>(
-                                  FFAppState().enableRepeatText,
-                                  'Ativado',
+                  Opacity(
+                    opacity: FFAppState().contrast,
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(19.0, 15.0, 19.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          InkWell(
+                            borderRadius: BorderRadius.circular(12),
+                            onTap: () {
+                              FFAppState().enableRepeatText = true;
+                              safeSetState(() {});
+                            },
+                            child: Row(
+                              children: [
+                                FaIcon(
+                                  FontAwesomeIcons.check,
+                                  size: FFAppState().iconSize,
+                                  color: FFAppState().enableRepeatText
+                                      ? FlutterFlowTheme.of(context).success
+                                      : FlutterFlowTheme.of(context).accent4,
                                 ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      font: GoogleFonts.baloo2(
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
+                                const SizedBox(width: 6),
+                                Text(
+                                  FFAppState().enableRepeatText == true
+                                      ? 'Ativado'
+                                      : 'Ativar',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Baloo 2',
+                                        fontSize: FFAppState().fontSize,
+                                        color: FFAppState().enableRepeatText
+                                            ? FlutterFlowTheme.of(context)
+                                                .success
+                                            : FlutterFlowTheme.of(context)
+                                                .accent4,
                                       ),
-                                      color: valueOrDefault<Color>(
-                                        FFAppState().enableRepeatColor,
-                                        FlutterFlowTheme.of(context).success,
-                                      ),
-                                      fontSize: 24.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            FaIcon(
-                              FontAwesomeIcons.times,
-                              color: valueOrDefault<Color>(
-                                FFAppState().enableRepeatColor,
-                                FlutterFlowTheme.of(context).accent4,
-                              ),
-                              size: valueOrDefault<double>(
-                                FFAppState().iconSize,
-                                56.0,
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  5.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                valueOrDefault<String>(
-                                  FFAppState().enableRepeatText,
-                                  'Desativar',
                                 ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      font: GoogleFonts.baloo2(
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
-                                      ),
-                                      color: valueOrDefault<Color>(
-                                        FFAppState().enableRepeatColor,
-                                        FlutterFlowTheme.of(context).accent4,
-                                      ),
-                                      fontSize: 24.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                              ),
+                              ],
                             ),
-                          ],
-                        ),
-                      ].divide(SizedBox(width: 66.0)),
+                          ),
+                          InkWell(
+                            borderRadius: BorderRadius.circular(12),
+                            onTap: () {
+                              FFAppState().enableRepeatText = false;
+                              safeSetState(() {});
+                            },
+                            child: Row(
+                              children: [
+                                FaIcon(
+                                  FontAwesomeIcons.xmark,
+                                  size: FFAppState().iconSize,
+                                  color: !FFAppState().enableRepeatText
+                                      ? FlutterFlowTheme.of(context).error
+                                      : FlutterFlowTheme.of(context).accent4,
+                                ),
+                                const SizedBox(width: 6),
+                                Text(
+                                  FFAppState().enableRepeatText == false
+                                      ? 'Desativado'
+                                      : 'Desativar',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Baloo 2',
+                                        fontSize: FFAppState().fontSize,
+                                        color: !FFAppState().enableRepeatText
+                                            ? FlutterFlowTheme.of(context).error
+                                            : FlutterFlowTheme.of(context)
+                                                .accent4,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ].divide(SizedBox(width: 66.0)),
+                      ),
                     ),
                   ),
                 ]

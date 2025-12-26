@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'icons_texts_page_model.dart';
+import '/custom_code/actions/index.dart' as actions;
 export 'icons_texts_page_model.dart';
 
 class IconsTextsPageWidget extends StatefulWidget {
@@ -22,6 +23,39 @@ class _IconsTextsPageWidgetState extends State<IconsTextsPageWidget> {
   late IconsTextsPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  double _fontSizeFromSlider(double value) {
+    switch (value.round()) {
+      case 0:
+        return 10.0;
+      case 1:
+        return 24.0;
+      case 2:
+        return 40.0;
+      default:
+        return 24.0;
+    }
+  }
+
+  String _fontLabelFromSlider(double value) {
+    switch (value.round()) {
+      case 0:
+        return 'Pequena';
+      case 1:
+        return 'Média';
+      case 2:
+        return 'Grande';
+      default:
+        return '';
+    }
+  }
+
+  double _sliderValueFromFontSize(double fontSize) {
+    if (fontSize <= 12) return 0.0;
+    if (fontSize <= 30) return 1.0;
+
+    return 2.0;
+  }
 
   @override
   void initState() {
@@ -164,15 +198,18 @@ class _IconsTextsPageWidgetState extends State<IconsTextsPageWidget> {
                               MenuPageWidget.routeName,
                               extra: <String, dynamic>{
                                 kTransitionInfoKey: TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType:
-                                      PageTransitionType.leftToRight,
-                                  duration: Duration(milliseconds: 1000),
-                                ),
+                                        hasTransition: true,
+                                        transitionType:
+                                            PageTransitionType.leftToRight,
+                                        duration: Duration(milliseconds: 1000),
+                                      ),
                               },
                             );
                           },
                         ),
+                      ),
+                      SizedBox(
+                        width: 20,
                       ),
                       Opacity(
                         opacity: FFAppState().contrast,
@@ -281,36 +318,45 @@ class _IconsTextsPageWidgetState extends State<IconsTextsPageWidget> {
                             ),
                           ),
                         ),
-                        Opacity(
-                          opacity: FFAppState().contrast,
-                          child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: Container(
-                                width: 210.0,
+                        Expanded(
+                          child: Opacity(
+                            opacity: FFAppState().contrast,
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
                                 child: Slider.adaptive(
                                   activeColor:
                                       FlutterFlowTheme.of(context).primaryText,
                                   inactiveColor:
-                                      FlutterFlowTheme.of(context).accent3,
-                                  min: 10.0,
-                                  max: 100.0,
-                                  value: _model.sliderContrastValue1 ??= 100.0,
-                                  label:
-                                      _model.sliderContrastValue1?.toString(),
-                                  divisions: 9,
+                                      FlutterFlowTheme.of(context).accent4,
+                                  min: 0.0,
+                                  max: 2.0,
+                                  divisions: 2,
+                                  value: _model.sliderFontSizeValue ??=
+                                      _sliderValueFromFontSize(
+                                          FFAppState().fontSize),
+                                  label: _fontLabelFromSlider(
+                                    _model.sliderFontSizeValue ?? 1.0,
+                                  ),
                                   onChanged: (newValue) {
-                                    safeSetState(() =>
-                                        _model.sliderContrastValue1 = newValue);
+                                    safeSetState(() {
+                                      _model.sliderFontSizeValue = newValue;
+                                    });
                                   },
                                   onChangeEnd: (newValue) async {
-                                    safeSetState(() =>
-                                        _model.sliderContrastValue1 = newValue);
-                                    FFAppState().contrast =
-                                        _model.sliderContrastValue1!;
-                                    safeSetState(() {});
+                                    final fontSize =
+                                        _fontSizeFromSlider(newValue);
+
+                                    FFAppState().update(() {
+                                      FFAppState().fontSize = fontSize;
+                                    });
+
+                                    await actions.setFontSize(
+                                      newValue,
+                                      fontSize,
+                                    );
                                   },
                                 ),
                               ),
@@ -384,35 +430,34 @@ class _IconsTextsPageWidgetState extends State<IconsTextsPageWidget> {
                             ),
                           ),
                         ),
-                        Opacity(
-                          opacity: FFAppState().contrast,
-                          child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: Container(
-                                width: 210.0,
+                        Expanded(
+                          child: Opacity(
+                            opacity: FFAppState().contrast,
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
                                 child: Slider.adaptive(
                                   activeColor:
                                       FlutterFlowTheme.of(context).primaryText,
                                   inactiveColor:
-                                      FlutterFlowTheme.of(context).accent3,
-                                  min: 10.0,
-                                  max: 100.0,
-                                  value: _model.sliderContrastValue2 ??= 100.0,
-                                  label:
-                                      _model.sliderContrastValue2?.toString(),
-                                  divisions: 9,
+                                      FlutterFlowTheme.of(context).accent4,
+                                  min: 0.0,
+                                  max: 60.0,
+                                  value: _model.sliderIconSizeValue ??=
+                                      FFAppState().iconSize,
+                                  label: _model.sliderIconSizeValue?.toString(),
+                                  divisions: 6,
                                   onChanged: (newValue) {
                                     safeSetState(() =>
-                                        _model.sliderContrastValue2 = newValue);
+                                        _model.sliderIconSizeValue = newValue);
                                   },
                                   onChangeEnd: (newValue) async {
                                     safeSetState(() =>
-                                        _model.sliderContrastValue2 = newValue);
-                                    FFAppState().contrast =
-                                        _model.sliderContrastValue2!;
+                                        _model.sliderIconSizeValue = newValue);
+                                    FFAppState().iconSize =
+                                        _model.sliderIconSizeValue!;
                                     safeSetState(() {});
                                   },
                                 ),

@@ -37,6 +37,10 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if (FFAppState().contrast < 0.0 || FFAppState().contrast > 1.0) {
+        FFAppState().contrast = 1.0;
+      }
+
       await Future.delayed(
         Duration(
           milliseconds: 2000,

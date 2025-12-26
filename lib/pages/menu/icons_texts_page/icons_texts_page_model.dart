@@ -7,9 +7,9 @@ class IconsTextsPageModel extends FlutterFlowModel<IconsTextsPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for SliderContrast widget.
-  double? sliderContrastValue1;
+  double? sliderFontSizeValue;
   // State field(s) for SliderContrast widget.
-  double? sliderContrastValue2;
+  double? sliderIconSizeValue;
 
   @override
   void initState(BuildContext context) {}

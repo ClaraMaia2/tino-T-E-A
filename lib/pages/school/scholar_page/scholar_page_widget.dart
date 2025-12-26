@@ -117,7 +117,7 @@ class _ScholarPageWidgetState extends State<ScholarPageWidget> {
         canPop: false,
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: FFAppState().enableRepeatColor,
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           appBar: PreferredSize(
             preferredSize: Size.fromHeight(100.0),
             child: AppBar(

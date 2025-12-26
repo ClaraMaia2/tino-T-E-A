@@ -9,11 +9,16 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_tts/flutter_tts.dart';
 
-Future speakText(String? text) async {
-  final tts = FlutterTts();
+final FlutterTts _tts = FlutterTts();
 
-  await tts.setLanguage('pt-BR');
-  await tts.setVolume(FFAppState().audioVolume);
-  await tts.setPitch(1.0);
-  await tts.speak(text!);
+Future speakText(String? text) async {
+  if (text == null || text.trim().isEmpty) return;
+
+  await _tts.setLanguage('pt-BR');
+  await _tts.setVolume(FFAppState().audioVolume);
+  await _tts.setPitch(1.0);
+
+  if (FFAppState().enableRepeatText == true) {
+    await _tts.speak(text!);
+  }
 }

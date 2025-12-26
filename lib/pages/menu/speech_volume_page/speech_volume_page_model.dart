@@ -7,7 +7,7 @@ class SpeechVolumePageModel extends FlutterFlowModel<SpeechVolumePageWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for SliderContrast widget.
-  double? sliderContrastValue;
+  double? sliderAudioVolumeValue;
 
   @override
   void initState(BuildContext context) {}

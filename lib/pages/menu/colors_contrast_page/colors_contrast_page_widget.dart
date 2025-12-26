@@ -136,113 +136,137 @@ class _ColorsContrastPageWidgetState extends State<ColorsContrastPageWidget> {
           ),
         ),
         body: SafeArea(
-          top: true,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Opacity(
-                      opacity: FFAppState().contrast,
-                      child: FlutterFlowIconButton(
-                        borderRadius: 8.0,
-                        buttonSize: FFAppState().iconSize,
-                        icon: Icon(
-                          Icons.arrow_back,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          size: valueOrDefault<double>(
-                            FFAppState().iconSize,
-                            56.0,
-                          ),
-                        ),
-                        onPressed: () async {
-                          context.goNamed(
-                            MenuPageWidget.routeName,
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.leftToRight,
-                                duration: Duration(milliseconds: 1000),
-                              ),
-                            },
-                          );
-                        },
-                      ),
-                    ),
-                    Opacity(
-                      opacity: FFAppState().contrast,
-                      child: Text(
-                        'Voltar',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.baloo2(
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontStyle,
-                              ),
-                              fontSize: valueOrDefault<double>(
-                                FFAppState().fontSize,
-                                20.0,
-                              ),
-                              letterSpacing: 0.0,
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontStyle,
-                              decoration: TextDecoration.underline,
-                            ),
-                      ),
-                    ),
-                  ],
-                ),
-                Opacity(
-                  opacity: FFAppState().contrast,
-                  child: Text(
-                    'Cores e contraste',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          font: GoogleFonts.nunito(
-                            fontWeight: FontWeight.bold,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontStyle,
-                          ),
-                          fontSize: valueOrDefault<double>(
-                            FFAppState().fontSize,
-                            24.0,
-                          ),
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.bold,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                        ),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return SingleChildScrollView(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    minHeight: constraints.maxHeight,
                   ),
-                ),
-                Expanded(
-                  child: Opacity(
-                    opacity: FFAppState().contrast,
-                    child: Align(
-                      alignment: AlignmentDirectional(-1.0, 0.0),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            19.0, 18.0, 0.0, 0.0),
-                        child: FlutterFlowRadioButton(
-                          options: [
-                            'TEMA ALTERNATIVO',
-                            'TEMA ESCURO',
-                            'TEMA PADRÃO'
-                          ].toList(),
-                          onChanged: (val) => safeSetState(() {}),
-                          controller: _model.radioButtonValueController ??=
-                              FormFieldController<String>('TEMA PADRÃO'),
-                          optionHeight: 32.0,
-                          textStyle:
-                              FlutterFlowTheme.of(context).labelMedium.override(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Opacity(
+                              opacity: FFAppState().contrast,
+                              child: FlutterFlowIconButton(
+                                borderRadius: 8.0,
+                                buttonSize: FFAppState().iconSize,
+                                icon: Icon(
+                                  Icons.arrow_back,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: valueOrDefault<double>(
+                                    FFAppState().iconSize,
+                                    56.0,
+                                  ),
+                                ),
+                                onPressed: () async {
+                                  context.goNamed(
+                                    MenuPageWidget.routeName,
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType:
+                                            PageTransitionType.leftToRight,
+                                        duration: Duration(milliseconds: 1000),
+                                      ),
+                                    },
+                                  );
+                                },
+                              ),
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Opacity(
+                              opacity: FFAppState().contrast,
+                              child: Text(
+                                'Voltar',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.baloo2(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      fontSize: valueOrDefault<double>(
+                                        FFAppState().fontSize,
+                                        20.0,
+                                      ),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                      decoration: TextDecoration.underline,
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 24),
+                        Center(
+                          child: Opacity(
+                            opacity: FFAppState().contrast,
+                            child: Text(
+                              'Cores e contraste',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.nunito(
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    fontSize: valueOrDefault<double>(
+                                      FFAppState().fontSize,
+                                      24.0,
+                                    ),
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 24),
+                        Opacity(
+                          opacity: FFAppState().contrast,
+                          child: Align(
+                            alignment: AlignmentDirectional(-1.0, 0),
+                            child: FlutterFlowRadioButton(
+                              radioButtonColor:
+                                  FlutterFlowTheme.of(context).primaryText,
+                              options: const [
+                                'TEMA ALTERNATIVO',
+                                'TEMA ESCURO',
+                                'TEMA PADRÃO',
+                              ],
+                              controller: _model.radioButtonValueController ??=
+                                  FormFieldController('TEMA PADRÃO'),
+                              onChanged: (_) => safeSetState(() {}),
+                              direction: Axis.vertical,
+                              optionHeight: 48,
+                              toggleable: false,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
                                     font: GoogleFonts.baloo2(
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .labelMedium
@@ -263,83 +287,94 @@ class _ColorsContrastPageWidgetState extends State<ColorsContrastPageWidget> {
                                         .labelMedium
                                         .fontStyle,
                                   ),
-                          buttonPosition: RadioButtonPosition.left,
-                          direction: Axis.vertical,
-                          radioButtonColor:
-                              FlutterFlowTheme.of(context).primaryText,
-                          inactiveRadioButtonColor:
-                              FlutterFlowTheme.of(context).secondaryText,
-                          toggleable: false,
-                          horizontalAlignment: WrapAlignment.start,
-                          verticalAlignment: WrapCrossAlignment.start,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(19.0, 50.0, 0.0, 0.0),
-                    child: Text(
-                      'CONTRASTE',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            font: GoogleFonts.baloo2(
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontStyle,
+                              buttonPosition: RadioButtonPosition.left,
+                              horizontalAlignment: WrapAlignment.start,
+                              verticalAlignment: WrapCrossAlignment.start,
                             ),
-                            fontSize: valueOrDefault<double>(
-                              FFAppState().fontSize,
-                              24.0,
-                            ),
-                            letterSpacing: 0.0,
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontStyle,
                           ),
+                        ),
+                        SizedBox(height: 40),
+                        Opacity(
+                          opacity: FFAppState().contrast,
+                          child: Align(
+                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  19.0, 50.0, 0.0, 0.0),
+                              child: Text(
+                                'CONTRASTE',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.baloo2(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      fontSize: valueOrDefault<double>(
+                                        FFAppState().fontSize,
+                                        24.0,
+                                      ),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Opacity(
+                          opacity: FFAppState().contrast,
+                          child: Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: Slider.adaptive(
+                                activeColor:
+                                    FlutterFlowTheme.of(context).primaryText,
+                                inactiveColor:
+                                    FlutterFlowTheme.of(context).accent3,
+                                min: 0.0,
+                                max: 1.0,
+                                value: _model.sliderContrastValue ??=
+                                    FFAppState().contrast,
+                                label: _model.sliderContrastValue?.toString(),
+                                divisions: 10,
+                                onChanged: (newValue) {
+                                  safeSetState(() =>
+                                      _model.sliderContrastValue = newValue);
+                                },
+                                onChangeEnd: (newValue) async {
+                                  safeSetState(() =>
+                                      _model.sliderContrastValue = newValue);
+                                  FFAppState().contrast =
+                                      _model.sliderContrastValue!;
+                                  safeSetState(() {});
+                                },
+                              ),
+                            ),
+                          ),
+                        ),
+                      ]
+                          .addToStart(SizedBox(
+                            height: 15,
+                          ))
+                          .addToEnd(SizedBox(
+                            height: 15,
+                          )),
                     ),
                   ),
                 ),
-                Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                    child: Container(
-                      width: 400.0,
-                      child: Slider.adaptive(
-                        activeColor: FlutterFlowTheme.of(context).primaryText,
-                        inactiveColor: FlutterFlowTheme.of(context).alternate,
-                        min: 0.0,
-                        max: 1.0,
-                        value: _model.sliderContrastValue ??= 1.0,
-                        label: _model.sliderContrastValue?.toString(),
-                        divisions: 10,
-                        onChanged: (newValue) {
-                          safeSetState(
-                              () => _model.sliderContrastValue = newValue);
-                        },
-                        onChangeEnd: (newValue) async {
-                          safeSetState(
-                              () => _model.sliderContrastValue = newValue);
-                          FFAppState().contrast = _model.sliderContrastValue!;
-                          safeSetState(() {});
-                        },
-                      ),
-                    ),
-                  ),
-                ),
-              ]
-                  .addToStart(SizedBox(height: 15.0))
-                  .addToEnd(SizedBox(height: 15.0)),
-            ),
+              );
+            },
           ),
         ),
       ),
