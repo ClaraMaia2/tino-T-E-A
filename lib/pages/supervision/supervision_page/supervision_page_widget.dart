@@ -1,4 +1,5 @@
 import 'package:tino_t_e_a/pages/supervision/supervision_page/change_p_i_n_dialog_model.dart';
+import 'package:tino_t_e_a/widgets/profile_avatar.dart';
 
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
@@ -28,8 +29,12 @@ class SupervisionPageWidget extends StatefulWidget {
 class _SupervisionPageWidgetState extends State<SupervisionPageWidget> {
   late SupervisionPageModel _model;
   late ChangePINDialogModel _modelChangePin;
-
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  late TextEditingController nomeController;
+  late TextEditingController idadeController;
+  late TextEditingController responsavelController;
+  late TextEditingController emailController;
 
   @override
   void setState(VoidCallback callback) {
@@ -61,6 +66,15 @@ class _SupervisionPageWidgetState extends State<SupervisionPageWidget> {
       FFAppState().idadeCrianca = _model.userRef!.idadeCrianca;
       FFAppState().nomeResponsavel = _model.userRef!.nomeResponsavel;
       FFAppState().email = _model.userRef!.email;
+
+      nomeController =
+          TextEditingController(text: _model.userRef?.displayName ?? '');
+      idadeController = TextEditingController(
+          text: _model.userRef?.idadeCrianca.toString() ?? '');
+      responsavelController =
+          TextEditingController(text: _model.userRef?.nomeResponsavel ?? '');
+      emailController =
+          TextEditingController(text: _model.userRef?.email ?? '');
       safeSetState(() {});
     });
   }
@@ -236,55 +250,64 @@ class _SupervisionPageWidgetState extends State<SupervisionPageWidget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Center(
-                          child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Container(
-                              width: 100.0,
-                              height: 100.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  width: 2.0,
-                                ),
-                              ),
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Opacity(
-                                opacity: FFAppState().contrast,
-                                child: Icon(
-                                  Icons.person,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  size: 90.0,
-                                ),
-                              ),
+                          child: AbsorbPointer(
+                            absorbing: !FFAppState().isEditingProfile,
+                            child: Stack(
+                              alignment: Alignment.bottomRight,
+                              children: [
+                                ProfileAvatar(),
+                                if (FFAppState().isEditingProfile)
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    padding: const EdgeInsets.all(20),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        const Icon(
+                                          Icons.edit,
+                                          color: Colors.white,
+                                          size: 20,
+                                        ),
+                                        Text(
+                                          "Editar foto",
+                                          textAlign: TextAlign.center,
+                                          style: GoogleFonts.baloo2(
+                                            fontSize: 12,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                              ],
                             ),
                           ),
                         ),
-                        ProfileInfoRow(
+                        EditableProfileField(
                           label: 'Nome',
-                          value: currentUserDisplayName,
+                          controller: nomeController,
+                          isEditing: FFAppState().isEditingProfile,
                         ),
-                        ProfileInfoRow(
+                        EditableProfileField(
                           label: 'Idade',
-                          value: valueOrDefault(
-                            currentUserDocument?.idadeCrianca,
-                            0,
-                          ).toString(),
+                          controller: idadeController,
+                          isEditing: FFAppState().isEditingProfile,
                         ),
-                        ProfileInfoRow(
+                        EditableProfileField(
                           label: 'Responsável',
-                          value: valueOrDefault(
-                            currentUserDocument?.nomeResponsavel,
-                            '',
-                          ),
+                          controller: responsavelController,
+                          isEditing: FFAppState().isEditingProfile,
                         ),
-                        ProfileInfoRow(
+                        EditableProfileField(
                           label: 'Email',
-                          value: currentUserEmail,
+                          controller: emailController,
+                          isEditing: FFAppState().isEditingProfile,
                         ),
                         const SizedBox(height: 24),
                         // ===== BOTÃO DE EDITAR DADOS =====
@@ -294,19 +317,38 @@ class _SupervisionPageWidgetState extends State<SupervisionPageWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 25.0, 0.0, 0.0),
                             child: FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
-                                // TODO: FAZER EDITAR DADOS
+                              onPressed: () async {
+                                // 🟡 SE NÃO ESTÁ EDITANDO → ENTRA EM MODO EDIÇÃO
+                                if (!FFAppState().isEditingProfile) {
+                                  FFAppState().update(() {
+                                    FFAppState().isEditingProfile = true;
+                                  });
+                                  return;
+                                }
+
+                                // 🟢 SE ESTÁ EDITANDO → SALVA E SAI
+                                await currentUserReference?.update({
+                                  'display_name': nomeController.text,
+                                  'idadeCrianca':
+                                      int.tryParse(idadeController.text),
+                                  'nomeResponsavel': responsavelController.text,
+                                });
+
+                                FFAppState().update(() {
+                                  FFAppState().isEditingProfile = false;
+                                });
                               },
-                              text: 'Editar dados',
+                              text: FFAppState().isEditingProfile
+                                  ? 'Salvar alterações'
+                                  : 'Editar dados',
                               options: FFButtonOptions(
                                 width: 340.0,
                                 height: 56.0,
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).warning,
+                                color: FFAppState().isEditingProfile
+                                    ? FlutterFlowTheme.of(context).success
+                                    : FlutterFlowTheme.of(context).warning,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
@@ -1130,39 +1172,54 @@ class _SupervisionPageWidgetState extends State<SupervisionPageWidget> {
   }
 }
 
-class ProfileInfoRow extends StatelessWidget {
-  const ProfileInfoRow({
+class EditableProfileField extends StatelessWidget {
+  final String label;
+  final TextEditingController controller;
+  final bool isEditing;
+
+  const EditableProfileField({
     super.key,
     required this.label,
-    required this.value,
+    required this.controller,
+    required this.isEditing,
   });
-
-  final String label;
-  final String value;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 12),
-      child: Row(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '$label: ',
+            label,
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   font: GoogleFonts.baloo2(fontWeight: FontWeight.bold),
                   fontSize: 18,
                 ),
           ),
-          Expanded(
-            child: Text(
-              value,
-              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    font: GoogleFonts.baloo2(),
-                    fontSize: 18,
-                  ),
+          const SizedBox(height: 6),
+          TextField(
+            controller: controller,
+            enabled: isEditing,
+            readOnly: label == "Email" ? true : false,
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: isEditing
+                  ? FlutterFlowTheme.of(context).primary.withValues(alpha: 0.08)
+                  : Colors.transparent,
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+                borderSide: BorderSide(
+                  color: isEditing
+                      ? FlutterFlowTheme.of(context).primary
+                      : Colors.transparent,
+                ),
+              ),
+              disabledBorder: InputBorder.none,
             ),
-          )
+            style: GoogleFonts.baloo2(fontSize: 18),
+          ),
         ],
       ),
     );

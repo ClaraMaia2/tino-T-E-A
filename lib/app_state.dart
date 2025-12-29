@@ -137,6 +137,8 @@ class FFAppState extends ChangeNotifier {
     _pin = value;
     prefs.setString('ff_pin', value);
   }
+
+  bool isEditingProfile = false;
 }
 
 void _safeInit(Function() initializeField) {

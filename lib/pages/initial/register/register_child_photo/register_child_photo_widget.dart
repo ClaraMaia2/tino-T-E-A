@@ -1,3 +1,5 @@
+import 'package:tino_t_e_a/widgets/profile_avatar.dart';
+
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -11,6 +13,8 @@ export 'register_child_photo_model.dart';
 
 /// Tela em que o responsável adiciona uma foto de perfil para a criança no
 /// app.
+/// 
+
 class RegisterChildPhotoWidget extends StatefulWidget {
   const RegisterChildPhotoWidget({super.key});
 
@@ -147,6 +151,7 @@ class _RegisterChildPhotoWidgetState extends State<RegisterChildPhotoWidget> {
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
+                  // ===== TÍTULO =====
                   Opacity(
                     opacity: FFAppState().contrast,
                     child: Align(
@@ -201,35 +206,9 @@ class _RegisterChildPhotoWidgetState extends State<RegisterChildPhotoWidget> {
                       ),
                     ),
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 21.0, 0.0, 0.0),
-                      child: Container(
-                        width: 222.0,
-                        height: 222.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            width: 2.0,
-                          ),
-                        ),
-                        alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Opacity(
-                          opacity: FFAppState().contrast,
-                          child: Icon(
-                            Icons.person,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 190.0,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  // ===== AVATAR =====
+                  ProfileAvatar(),
+                  // ===== BOTÃO =====
                   Opacity(
                     opacity: FFAppState().contrast,
                     child: Padding(
