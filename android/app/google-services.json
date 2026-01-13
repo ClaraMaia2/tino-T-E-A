@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "954690373529",
+    "project_id": "tino-t-e-a-8wxpac",
+    "storage_bucket": "tino-t-e-a-8wxpac.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954690373529:android:a3f77b2d4f8341c38df508",
+        "android_client_info": {
+          "package_name": "com.tcc.tinotea"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWMtNlk4O6cz4hC576rLsT_npY6X52FBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
